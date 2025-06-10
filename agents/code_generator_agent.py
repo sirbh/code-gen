@@ -21,8 +21,6 @@ def _set_env(var: str):
         os.environ[var] = getpass.getpass(f"{var}: ")
 _set_env("OPENAI_API_KEY")
 
-config = {"configurable": {"thread_id": "1"}}
-memory = MemorySaver()
 
 
 def read_file_as_string(filepath: str) -> str:
@@ -30,17 +28,17 @@ def read_file_as_string(filepath: str) -> str:
     with open(filepath, "r", encoding="utf-8") as f:
         return f.read()
     
-spec = read_file_as_string("product_service_openapi.yaml")
-prompt = read_file_as_string("code_generator_agent_prompt.txt").replace("{{INSERT_OPENAPI_SPEC_HERE}}", spec)
+spec = read_file_as_string("openapi.yaml")
+prompt = read_file_as_string("prompts/code_generator_agent_prompt.txt").replace("{{INSERT_OPENAPI_SPEC_HERE}}", spec)
 
 
 @tool
-def save_code(code_json_str: str, base_dir: str = "server_code") -> str:
+def save_code(code_json_str: str) -> str:
     """
     Save code represented as a JSON string into files under a directory called 'server_code'.
     """
-    import json
-    import os
+    base_dir: str = "server_code"
+    
 
     try:
         code_json = json.loads(code_json_str)
