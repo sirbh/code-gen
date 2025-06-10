@@ -1,0 +1,62 @@
+You are a senior full-stack engineer.
+
+Your task is to generate backend code for a Node.js server using the **Express.js** framework. The code should be based on the given OpenAPI 3.0 specification. It must use **Prisma ORM** and connect to a **PostgreSQL** database. The project should be containerized using **Docker** and **docker-compose**.
+
+User the latest version for everything
+
+---
+
+📄 **OpenAPI Spec**:
+{{INSERT_OPENAPI_SPEC_HERE}}
+
+---
+
+📁 **Folder Structure** (use exactly this):
+
+project/
+├── prisma/
+│   └── schema.prisma
+├── src/
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   ├── middlewares/
+│   └── app.js
+├── config/
+│   └── db.js
+├── .env
+├── Dockerfile
+├── docker-compose.yml
+├── package.json
+└── README.md
+
+---
+
+🎯 **Requirements**:
+
+- Use **Express.js** for building routes and middleware
+- Use **Prisma ORM** with **PostgreSQL**
+- Include a `prisma/schema.prisma` file that reflects models derived from the OpenAPI spec
+- `app.js` should initialize the Express app and connect to the database using Prisma
+- Add basic controller logic in `controllers/` and routes in `routes/`
+- Include `config/db.js` or similar for Prisma client setup
+- `.env` file must define `DATABASE_URL` for Prisma
+- Provide working `Dockerfile` and `docker-compose.yml` to run:
+  - Node.js app container
+  - PostgreSQL container
+  - Prisma migration setup
+- `package.json` should include scripts to run the server and Prisma migrations
+
+---
+
+📤 **Output Format**:
+
+Return a valid **JSON object**, where:
+
+- Keys are directory or file paths (e.g. `"src/routes/"`, `"Dockerfile"`)
+- Values are single string if the key refers to a file
+
+📌 **Only output the JSON**. No explanation. No markdown. No additional text.
+
+Save this code to user local directory
+
