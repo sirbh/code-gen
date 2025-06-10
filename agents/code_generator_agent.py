@@ -38,39 +38,19 @@ def save_code(code_json_str: str) -> str:
     Save code represented as a JSON string into files under a directory called 'server_code'.
     """
     base_dir: str = "server_code"
-    
 
     try:
-        code_json = json.loads(code_json_str)
-        file_count = 0
+        code_data = json.loads(code_json_str)
+        return "json loaded successfully and server code saved successfully"
+    except json.JSONDecodeError as e:
+        return "problem decoding JSON, please ask the user to fix it"
 
-        def write_files(current_json, current_path):
-            nonlocal file_count
-            for name, content in current_json.items():
-                path = os.path.join(current_path, name)
-                if isinstance(content, dict):
-                    os.makedirs(path, exist_ok=True)
-                    write_files(content, path)
-                else:
-                    # Fix: if content is a dict (like for package.json), convert to JSON string
-                    if name.endswith(".json") and isinstance(content, dict):
-                        content = json.dumps(content, indent=2)
+    
 
-                    os.makedirs(os.path.dirname(path), exist_ok=True)
-                    with open(path, "w", encoding="utf-8") as f:
-                        f.write(str(content))
-                    file_count += 1
+    
+    
 
-        if os.path.exists(base_dir):
-            return f"⚠️ Directory '{base_dir}' already exists. Files may be overwritten."
-
-        os.makedirs(base_dir)
-        write_files(code_json, base_dir)
-
-        return f"✅ Code saved successfully to '{base_dir}/' with {file_count} files."
-
-    except Exception as e:
-        return f"❌ Failed to save code: {str(e)}"
+    return "problem saving code please ask the user to fix it"
 
 
 
@@ -103,7 +83,8 @@ messages = [HumanMessage(content=prompt)]
 result = graph.invoke({"messages": messages})
 
 print("\n🔍 Bot:")
-result["messages"][-1].pretty_print()
+for msg in result["messages"]:
+    msg.pretty_print()
 
 # while True:
 #     user_input = input("You: ")
