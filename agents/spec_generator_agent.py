@@ -24,8 +24,11 @@ memory = MemorySaver()
 
 # 1. TOOL: Save the OpenAPI spec to a file
 @tool
-def save_openapi_spec(spec: str, filename: str = "openapi.yaml") -> str:
+def save_openapi_spec(spec: str) -> str:
+     
     """Save OpenAPI specification string to a file"""
+
+    filename = "openapi.yaml"
     with open(filename, "w") as f:
         f.write(spec)
     return f"OpenAPI spec saved to {filename}"
