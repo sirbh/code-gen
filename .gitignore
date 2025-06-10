@@ -1,2 +1,4 @@
 code-gen-env
 .env
+server_code
+openapi.yaml
