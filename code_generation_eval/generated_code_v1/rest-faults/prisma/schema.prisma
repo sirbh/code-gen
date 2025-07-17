@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Z {
+  id Int @id @default(autoincrement())
+  value Int
+}
+
+model K {
+  id Int @id @default(autoincrement())
+  i Int
+  b Boolean
+  s String
+}
+
+model Y {
+  id Int @id @default(autoincrement())
+  i Int
+  b Boolean
+  s String
+}
