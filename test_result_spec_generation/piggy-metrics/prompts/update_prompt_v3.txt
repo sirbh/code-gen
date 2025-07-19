@@ -1,0 +1,41 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Restore Removed Dictionary Items**
+
+- **Paths**:
+  - Re-add the path `'/accounts/'` under `root['paths']`.
+
+- **Descriptions**:
+  - Re-add the description for the first parameter in `root['paths']['/accounts/{account}']['get']['parameters'][0]`.
+  - Re-add the description for the first parameter in `root['paths']['/statistics/{account}']['get']['parameters'][0]`.
+  - Re-add the description for the first parameter in `root['paths']['/statistics/{account}']['put']['parameters'][0]`.
+
+- **Schemas**:
+  - Re-add the JSON schema for the response in `root['paths']['/accounts/{account}']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/accounts/current']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/accounts/current']['put']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/accounts/demo']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/statistics/{account}']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/statistics/{account}']['put']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/statistics/current']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/statistics/demo']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/notifications/settings/current']['get']['responses']['200']['content']['application/json']['schema']`.
+  - Re-add the JSON schema for the response in `root['paths']['/notifications/settings/current']['put']['responses']['200']['content']['application/json']['schema']`.
+
+### 2. **Revert Changed Values**
+
+- **Servers**:
+  - Change `root['servers'][0]['url']` from `"https://api.piggymetrics.com"` back to `"http://localhost:8000"`.
+  - Change `root['servers'][0]['description']` from `"Production server"` back to `"Local Production Server for Piggy Metrics."`
+
+- **Paths Descriptions**:
+  - Change `root['paths']['/accounts/{account}']['get']['description']` from `"Get account details by account ID."` back to `"Get specified account data."`
+  - Change `root['paths']['/accounts/current']['get']['description']` from `"Get current account details."` back to `"Get current account data."`
+  - Change `root['paths']['/accounts/current']['put']['description']` from `"Update current account details."` back to `"Save current account data."`
+  - Change `root['paths']['/accounts/demo']['get']['description']` from `"Get demo account details."` back to `"Get demo account data (pre-filled incomes/expenses items, etc)."`
+  - Change `root['paths']['/statistics/{account}']['get']['description']` from `"Get statistics for a specific account."` back to `"Get specified account statistics."`
+  - Change `root['paths']['/statistics/{account}']['put']['description']` from `"Update statistics for a specific account."` back to `"Create or update time series datapoint for specified account."`
+  - Change `root['paths']['/notifications/settings/current']['get']['description']` from `"Get current notification settings."` back to `"Get current account notification settings."`
+  - Change `root['paths']['/notifications/settings/current']['put']['description']` from `"Update current notification settings."` back to `"Save current account notification settings."`
+
+By following these steps, you will successfully revert the `output_spec.json` to match the original specification.

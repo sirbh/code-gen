@@ -1,0 +1,49 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Items**
+- **Remove the following summaries:**
+  - `root['paths']['/z']['put']['summary']`
+  - `root['paths']['/k']['put']['summary']`
+  - `root['paths']['/y']['post']['summary']`
+
+### 2. **Re-add Removed Items**
+- **Re-add the following items with their original values:**
+  - `root['servers'][0]['description']`
+  - `root['paths']['/z']['put']['tags']`
+  - `root['paths']['/z']['put']['operationId']`
+  - `root['paths']['/z']['put']['requestBody']['required']`
+  - `root['paths']['/k']['put']['tags']`
+  - `root['paths']['/k']['put']['operationId']`
+  - `root['paths']['/k']['put']['requestBody']['required']`
+  - `root['paths']['/y']['post']['tags']`
+  - `root['paths']['/y']['post']['operationId']`
+  - `root['paths']['/y']['post']['requestBody']['required']`
+
+### 3. **Revert Changed Values**
+- **Change the OpenAPI version:**
+  - From `3.0.0` to `3.0.1` at `root['openapi']`
+- **Change the API title:**
+  - From `Sample API` to `OpenAPI definition` at `root['info']['title']`
+- **Change the API version:**
+  - From `1.0.0` to `v0` at `root['info']['version']`
+- **Revert path details:**
+  - **For `/z` GET operation:**
+    - Replace the entire object with `{'tags': ['endpoints'], 'operationId': 'getZ', 'responses': {'200': {'description': 'OK', 'content': {'*/*': {'schema': {'type': 'integer', 'format': 'int32'}}}}}}`
+  - **For `/z` PUT operation response description:**
+    - Change from `Indicates successful update` to `OK`
+  - **For `/k` GET operation:**
+    - Replace the entire object with `{'tags': ['endpoints'], 'operationId': 'getK', 'responses': {'200': {'description': 'OK', 'content': {'application/json': {'schema': {'$ref': '#/components/schemas/FooDto'}}}}}}`
+  - **For `/k` PUT operation response description:**
+    - Change from `Indicates successful update` to `OK`
+  - **For `/y` GET operation:**
+    - Replace the entire object with `{'tags': ['endpoints'], 'operationId': 'getY', 'responses': {'200': {'description': 'OK', 'content': {'application/json': {'schema': {'$ref': '#/components/schemas/FooDto'}}}}}}`
+  - **For `/y` POST operation response description:**
+    - Change from `Returns a string indicating successful creation` to `OK`
+  - **For `/y` POST operation response content:**
+    - Change from `{'application/json': {'schema': {'type': 'string'}}}` to `{'*/*': {'schema': {'type': 'string'}}}`
+  - **For `/y` DELETE operation:**
+    - Replace the entire object with `{'tags': ['endpoints'], 'operationId': 'deleteY', 'responses': {'200': {'description': 'OK'}}}`
+  - **For `/x` GET operation:**
+    - Replace the entire object with `{'tags': ['endpoints'], 'operationId': 'getX', 'responses': {'200': {'description': 'OK', 'content': {'*/*': {'schema': {'type': 'string'}}}}}}`
+
+By following these steps, you will revert `output_spec.json` to match the original specification accurately.

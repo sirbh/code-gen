@@ -1,0 +1,58 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Restore Removed Dictionary Item:**
+   - Re-add the description for the first tag in the `tags` array. Ensure that the description matches the original specification.
+
+2. **Revert URL Change:**
+   - Change the `url` in the `servers` array back to `https://randomuser.me` from `https://api.randomuser.me/`.
+
+3. **Revert Tag Name Changes:**
+   - Change the `name` of the first tag in the `tags` array from `User` back to `Overview`.
+   - In the `paths` object, under `/api` and `get`, change the first tag from `User` back to `Endpoints`.
+
+4. **Re-add Removed Tags:**
+   - Reintroduce the following tags in the `tags` array, ensuring each tag's `name` and `description` match the original specification:
+     - **Tag 1:**
+       - **Name:** `Overview > Authentication`
+       - **Description:** `Authorization (authentication) is not required to use the Random User Generator API.`
+     - **Tag 2:**
+       - **Name:** `Overview > Base URL`
+       - **Description:** ```
+https://randomuser.me/
+
+```
+     - **Tag 3:**
+       - **Name:** `Overview > Support`
+       - **Description:** `If you encounter any errors when using the API, please reach us at [support@randomuser.me](mailto:support@randomuser.me) with the error details, including the HTTP status code and error message. We'll do our best to resolve the issue as quickly as possible.
+
+For questions/feedback or would like to get in touch with us, tweet us [@randomapi](https://twitter.com/randomapi)
+
+Found a bug or have an idea?  
+Contribute to randomuser.me's database on our [Github Repo](https://github.com/RandomAPI/Randomuser.me-Node).`
+     - **Tag 4:**
+       - **Name:** `Overview > Issues`
+       - **Description:** `These are some of the current issues with the Random User API
+
+- The endpoint is just one - /api\*
+- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  
+    (The only way around this is to specify nationality.)`
+     - **Tag 5:**
+       - **Name:** `Endpoints`
+       - **Description:** `Only `GET` requests are allowed now.`
+     - **Tag 6:**
+       - **Name:** `HTTP and Error Codes`
+       - **Description:** `The Random API returns HTTP status code and error code messages.
+
+| HTTP Code | Message | Description |
+| --- | --- | --- |
+| 200 | OK | The request was successful |
+| 400 | Bad Request | The request was invalid or missing a required parameter. |
+| 404 | Not Found | The requested resource not found. |
+| 500 | Internal Server Error | An error occurred on the server |`
+     - **Tag 7:**
+       - **Name:** `Random API Flags`
+       - **Description:** `## List and explanation of the flags
+
+The Random User Generator API ([https://randomuser.me/](https://randomuser.me/)) is a free, open-source API that provides randomly generated user data. Here are the flags you can use with the API:`
+
+By following these steps, you will successfully revert the changes in `output_spec.json` to match the original specification.

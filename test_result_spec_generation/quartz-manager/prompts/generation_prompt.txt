@@ -1,0 +1,90 @@
+The Quartz-Scheduler API provides endpoints for managing mail schedules. Below is a detailed description of each endpoint:
+
+### 1. Create a Mail Schedule
+- **Endpoint Path:** `/quartz/mail/create`
+- **HTTP Method:** POST
+- **Functionality:** This endpoint allows users to create a new mail schedule.
+- **Request Headers:**
+  - `accept`: Specifies the media types that are acceptable for the response. Example: `*/*`
+  - `Content-Type`: Specifies the media type of the request body. Example: `application/json`
+- **Request Body:**
+  - **Content Type:** `application/json`
+  - **Schema:** An object containing the following fields:
+    - `message` (string): The content of the email.
+    - `scheduledTime` (string): The time the email is scheduled to be sent, in ISO 8601 format.
+    - `subject` (string): The subject of the email.
+    - `toEmail` (string): The recipient's email address.
+    - `username` (string): The username of the person scheduling the email.
+    - `zoneId` (string): The time zone ID.
+- **Response:**
+  - **Status Code:** 200
+  - **Description:** Successful response with no content.
+
+### 2. Delete a Mail Schedule
+- **Endpoint Path:** `/quartz/mail/delete/{id}`
+- **HTTP Method:** DELETE
+- **Functionality:** This endpoint deletes a mail schedule by its ID.
+- **Path Parameters:**
+  - `id` (string): The ID of the mail schedule to be deleted. This parameter is required.
+- **Query Parameters:**
+  - `id` (integer): The ID of the mail schedule.
+  - `username` (string): The username of the person who created the schedule.
+- **Request Headers:**
+  - `accept`: Specifies the media types that are acceptable for the response. Example: `*/*`
+- **Response:**
+  - **Status Code:** 200
+  - **Description:** Successful response with no content.
+
+### 3. Get All Mail Schedules Created by User
+- **Endpoint Path:** `/quartz/mail/list`
+- **HTTP Method:** GET
+- **Functionality:** This endpoint retrieves all mail schedules created by a specific user.
+- **Query Parameters:**
+  - `page` (integer): The page number for pagination. Example: `0`
+  - `size` (integer): The number of records per page. Example: `1000`
+  - `username` (string): The username of the person whose schedules are being retrieved.
+- **Request Headers:**
+  - `accept`: Specifies the media types that are acceptable for the response. Example: `*/*`
+- **Response:**
+  - **Status Code:** 200
+  - **Description:** Successful response with no content.
+
+### 4. Get Mail Schedule by ID
+- **Endpoint Path:** `/quartz/mail/list/{id}`
+- **HTTP Method:** GET
+- **Functionality:** This endpoint retrieves a specific mail schedule by its ID.
+- **Path Parameters:**
+  - `id` (string): The ID of the mail schedule to be retrieved. This parameter is required.
+- **Query Parameters:**
+  - `id` (integer): The ID of the mail schedule.
+  - `username` (string): The username of the person who created the schedule.
+- **Request Headers:**
+  - `accept`: Specifies the media types that are acceptable for the response. Example: `*/*`
+- **Response:**
+  - **Status Code:** 200
+  - **Description:** Successful response with no content.
+
+### 5. Update Mail Schedule
+- **Endpoint Path:** `/quartz/mail/update/{id}`
+- **HTTP Method:** POST
+- **Functionality:** This endpoint updates an existing mail schedule by its ID.
+- **Path Parameters:**
+  - `id` (string): The ID of the mail schedule to be updated. This parameter is required.
+- **Request Headers:**
+  - `accept`: Specifies the media types that are acceptable for the response. Example: `*/*`
+  - `Content-Type`: Specifies the media type of the request body. Example: `application/json`
+- **Request Body:**
+  - **Content Type:** `application/json`
+  - **Schema:** An object containing the following fields:
+    - `scheduleId` (integer): The ID of the schedule.
+    - `message` (string): The content of the email.
+    - `scheduledTime` (string): The time the email is scheduled to be sent, in ISO 8601 format.
+    - `subject` (string): The subject of the email.
+    - `toEmail` (string): The recipient's email address.
+    - `username` (string): The username of the person scheduling the email.
+    - `zoneId` (string): The time zone ID.
+- **Response:**
+  - **Status Code:** 200
+  - **Description:** Successful response with no content.
+
+This API is hosted on `http://localhost:8080` and is versioned as `1.0.0`. Each endpoint is tagged under `default` for categorization.

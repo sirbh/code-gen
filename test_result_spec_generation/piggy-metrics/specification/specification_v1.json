@@ -1,0 +1,210 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Piggy Metrics API",
+    "version": "1.0.0",
+    "description": "API for managing account data, statistics, and notification settings."
+  },
+  "paths": {
+    "/accounts/{account}": {
+      "get": {
+        "summary": "Retrieve data for a specified account.",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of account data.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/accounts/current": {
+      "get": {
+        "summary": "Retrieve data for the current account.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of current account data.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save or update data for the current account.",
+        "responses": {
+          "200": {
+            "description": "Successful update of current account data.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/accounts/demo": {
+      "get": {
+        "summary": "Retrieve demo account data.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of demo account data.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/accounts": {
+      "post": {
+        "summary": "Register a new account.",
+        "responses": {
+          "200": {
+            "description": "Successful registration of a new account.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/statistics/{account}": {
+      "get": {
+        "summary": "Retrieve statistics for a specified account.",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of account statistics.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      },
+      "put": {
+        "summary": "Create or update a time series data point for a specified account.",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful creation or update of time series data.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/statistics/current": {
+      "get": {
+        "summary": "Retrieve statistics for the current account.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of current account statistics.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/statistics/demo": {
+      "get": {
+        "summary": "Retrieve demo account statistics.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of demo account statistics.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    },
+    "/notifications/settings/current": {
+      "get": {
+        "summary": "Retrieve notification settings for the current account.",
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of notification settings.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      },
+      "put": {
+        "summary": "Save or update notification settings for the current account.",
+        "responses": {
+          "200": {
+            "description": "Successful update of notification settings.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Indicates an invalid request."
+          }
+        }
+      }
+    }
+  }
+}

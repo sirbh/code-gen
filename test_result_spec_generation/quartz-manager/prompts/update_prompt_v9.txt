@@ -1,0 +1,31 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Revert the Example Value for Delete Mail by ID**
+   - **Path**: `/quartz/mail/delete/{id}`
+   - **Method**: `DELETE`
+   - **Parameter Index**: `1`
+   - **Current Example Value**: `5`
+   - **Action**: Change the `example` value from `5` back to `7`.
+
+2. **Revert the Example Value for List Mails**
+   - **Path**: `/quartz/mail/list`
+   - **Method**: `GET`
+   - **Parameter Index**: `1`
+   - **Current Example Value**: `1`
+   - **Action**: Change the `example` value from `1` back to `0`.
+
+3. **Revert the Example Value for List Mails with Pagination**
+   - **Path**: `/quartz/mail/list`
+   - **Method**: `GET`
+   - **Parameter Index**: `2`
+   - **Current Example Value**: `50`
+   - **Action**: Change the `example` value from `50` back to `1000`.
+
+4. **Revert the Example Value for Get Mail by ID**
+   - **Path**: `/quartz/mail/list/{id}`
+   - **Method**: `GET`
+   - **Parameter Index**: `1`
+   - **Current Example Value**: `3`
+   - **Action**: Change the `example` value from `3` back to `9`.
+
+Ensure that each change is made precisely as described to maintain consistency with the original specification. Double-check each path, method, and parameter index to ensure accuracy.

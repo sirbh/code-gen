@@ -1,0 +1,46 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/accounts/']['post']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/accounts/{account}']['get']['parameters'][0]['description']:
+  input_spec.json: The account string.
+  output_spec.json: The account ID to retrieve details for.
+root['paths']['/accounts/{account}']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'id': {'type': 'string'}, 'name': {'type': 'string'}, 'balance': {'type': 'number'}}}
+root['paths']['/accounts/current']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'id': {'type': 'string'}, 'name': {'type': 'string'}, 'balance': {'type': 'number'}}}
+root['paths']['/accounts/current']['put']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'id': {'type': 'string'}, 'name': {'type': 'string'}, 'balance': {'type': 'number'}}}
+root['paths']['/accounts/demo']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'id': {'type': 'string'}, 'name': {'type': 'string'}, 'balance': {'type': 'number'}}}
+root['paths']['/statistics/{account}']['get']['parameters'][0]['description']:
+  input_spec.json: The account string.
+  output_spec.json: The account ID to retrieve statistics for.
+root['paths']['/statistics/{account}']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'statistics': {'type': 'array', 'items': {'type': 'object'}}}}
+root['paths']['/statistics/{account}']['put']['parameters'][0]['description']:
+  input_spec.json: The account string.
+  output_spec.json: The account ID to update statistics for.
+root['paths']['/statistics/{account}']['put']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'statistics': {'type': 'array', 'items': {'type': 'object'}}}}
+root['paths']['/statistics/current']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'statistics': {'type': 'array', 'items': {'type': 'object'}}}}
+root['paths']['/statistics/demo']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'statistics': {'type': 'array', 'items': {'type': 'object'}}}}
+root['paths']['/notifications/settings/current']['get']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'settings': {'type': 'object'}}}
+root['paths']['/notifications/settings/current']['put']['responses']['200']['content']['application/json']['schema']:
+  input_spec.json: {}
+  output_spec.json: {'type': 'object', 'properties': {'settings': {'type': 'object'}}}

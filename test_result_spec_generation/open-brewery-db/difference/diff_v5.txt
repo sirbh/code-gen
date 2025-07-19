@@ -1,0 +1,13 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['paths']['/breweries']['get']['parameters'][4]['example']:
+  input_spec.json: 1
+  output_spec.json: 1
+root['paths']['/breweries']['get']['parameters'][5]['example']:
+  input_spec.json: 10
+  output_spec.json: 10
+root['paths']['/breweries/{id}']['get']['description']:
+  input_spec.json: Provide the uuid for id path parameter for example ```modern-times-beer-san-diego```
+  output_spec.json: Provide the uuid for id path parameter for example `modern-times-beer-san-diego`

@@ -1,0 +1,28 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['tags'][0]['description']:
+  input_spec.json: The Random User Generator API provides a free service to generate random user data for application testing. With random user data crafted for diverse use cases, you can test better with ready-made user data across your project.
+
+## Who is the Random User Generator API for
+
+The audience for [https://randomuser.me/](https://randomuser.me/) is developers, data analysts, and researchers who need a quick and easy way to generate realistic mock user data for their applications or studies. This API generates random user profiles with diverse personal information, including name, gender, location, email address, and profile picture. It may also apply to UI/UX designers for placeholder data in designing user interfaces.
+  output_spec.json: This is the overview of the Random User Generator API.
+root['tags'][2]['description']:
+  input_spec.json: ```
+https://randomuser.me/
+
+```
+  output_spec.json: https://randomuser.me/
+root['tags'][4]['description']:
+  input_spec.json: These are some of the current issues with the Random User API
+
+- The endpoint is just one - /api\*
+- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  
+    (The only way around this is to specify nationality.)
+  output_spec.json: These are some of the current issues with the Random User API
+
+- The endpoint is just one - /api*
+- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  
+    (The only way around this is to specify nationality.)

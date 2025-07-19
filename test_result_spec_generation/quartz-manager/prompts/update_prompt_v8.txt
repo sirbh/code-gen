@@ -1,0 +1,35 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Locate the File**: Open the `output_spec.json` file in your preferred text editor or JSON editor.
+
+2. **Navigate to the Path**: 
+   - Find the section corresponding to the path `/quartz/mail/delete/{id}`.
+   - Within this path, locate the `delete` method.
+
+3. **Modify the Parameter Example**:
+   - Within the `delete` method, identify the `parameters` array.
+   - Focus on the second parameter (index 1) in this array.
+   - Change the `example` value from `7` to match the original specification.
+
+4. **Navigate to the Next Path**:
+   - Find the section corresponding to the path `/quartz/mail/list`.
+   - Within this path, locate the `get` method.
+
+5. **Modify the Parameter Examples**:
+   - Within the `get` method, identify the `parameters` array.
+   - For the second parameter (index 1), change the `example` value from `0` to match the original specification.
+   - For the third parameter (index 2), change the `example` value from `1000` to match the original specification.
+
+6. **Navigate to the Final Path**:
+   - Find the section corresponding to the path `/quartz/mail/list/{id}`.
+   - Within this path, locate the `get` method.
+
+7. **Modify the Parameter Example**:
+   - Within the `get` method, identify the `parameters` array.
+   - For the second parameter (index 1), change the `example` value from `9` to match the original specification.
+
+8. **Save the Changes**: After making all the necessary modifications, save the `output_spec.json` file.
+
+9. **Verify the Changes**: Ensure that all changes have been correctly applied by reviewing the modified sections and confirming they align with the original specification values.
+
+By following these steps, you will successfully revert the changes in `output_spec.json` to match the original specification.

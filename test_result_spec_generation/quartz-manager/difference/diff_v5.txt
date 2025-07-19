@@ -1,0 +1,34 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['required']", "root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['required']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['example']", "root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['example']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['in']:
+  input_spec.json: query
+  output_spec.json: path
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['schema']['type']:
+  input_spec.json: integer
+  output_spec.json: string
+root['paths']['/quartz/mail/list']['get']['parameters'][1]['example']:
+  input_spec.json: 0
+  output_spec.json: 0
+root['paths']['/quartz/mail/list']['get']['parameters'][2]['example']:
+  input_spec.json: 1000
+  output_spec.json: 1000
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['in']:
+  input_spec.json: query
+  output_spec.json: path
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['schema']['type']:
+  input_spec.json: integer
+  output_spec.json: string
+
+=== ITERABLE_ITEM_REMOVED ===
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][3]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][3]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}

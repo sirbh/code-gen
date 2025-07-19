@@ -1,0 +1,33 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Items:**
+- **Description in Info Section:**
+  - Remove the `description` field from `root['info']`.
+- **Parameters in Geocode Path:**
+  - Remove the `required` field from `root['paths']['/maps/api/geocode/json']['get']['parameters'][0]`.
+  - Remove the `description` field from `root['paths']['/maps/api/geocode/json']['get']['parameters'][0]`.
+  - Remove the `example` field from `root['paths']['/maps/api/geocode/json']['get']['parameters'][0]['schema']`.
+- **Response Headers in Geocode Path:**
+  - Remove the `description` field from `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['headers']['Content-Type']`.
+- **Response Content Schema in Geocode Path:**
+  - Remove the `properties` field from `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['content']['application/json']['schema']`.
+
+### 2. **Re-add Removed Items:**
+- **Tags in Geocode Path:**
+  - Re-add the `tags` field to `root['paths']['/maps/api/geocode/json']['get']`.
+- **Example in Parameters:**
+  - Re-add the `example` field to `root['paths']['/maps/api/geocode/json']['get']['parameters'][0]`.
+- **Example in Response Content:**
+  - Re-add the `example` field to `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['content']['application/json']`.
+
+### 3. **Revert Changed Values:**
+- **Title in Info Section:**
+  - Change `root['info']['title']` from `"Google Geocoding API"` back to `"Google Geocoding"`.
+- **Summary in Geocode Path:**
+  - Change `root['paths']['/maps/api/geocode/json']['get']['summary']` from `"Geocode and Reverse Geocode Addresses"` back to `"geocode Copy"`.
+- **Description in Geocode Path:**
+  - Change `root['paths']['/maps/api/geocode/json']['get']['description']` from `"Convert a street address into geographic coordinates or vice versa."` back to the detailed description provided in the original spec.
+- **Response Description in Geocode Path:**
+  - Change `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['description']` from `"Successful response"` back to `"OK"`.
+
+By following these steps, you will successfully revert `output_spec.json` to match the original specification.

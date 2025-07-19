@@ -1,0 +1,26 @@
+To revert the changes in `output_spec.json` and ensure it matches the original specification, follow these detailed instructions:
+
+1. **Locate the `tags` Array**:
+   - Open the `output_spec.json` file in a text editor.
+   - Navigate to the `tags` array, which is typically found near the top of the file, under the root object.
+
+2. **Identify the Third Tag**:
+   - Within the `tags` array, locate the third element (index 2, as arrays are zero-indexed).
+   - This element should have a `description` field that needs modification.
+
+3. **Modify the `description` Field**:
+   - Currently, the `description` field for the third tag in `output_spec.json` is:
+     ```
+     https://randomuser.me/
+     ```
+   - To match the original specification, update this field to include a newline character at the end, as follows:
+     ```
+     https://randomuser.me/\n
+     ```
+   - Ensure that the newline character is correctly represented in the JSON format, which may require using an escape sequence (e.g., `\n`).
+
+4. **Save the Changes**:
+   - After making the necessary modification, save the `output_spec.json` file.
+   - Ensure there are no syntax errors by validating the JSON structure, which can be done using a JSON validator tool.
+
+By following these steps, the `output_spec.json` will be reverted to match the original specification accurately.

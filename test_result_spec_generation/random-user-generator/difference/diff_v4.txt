@@ -1,0 +1,23 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['tags'][2]['description']:
+  input_spec.json: ```
+https://randomuser.me/
+
+```
+  output_spec.json: ```
+https://randomuser.me/
+```
+root['tags'][4]['description']:
+  input_spec.json: These are some of the current issues with the Random User API
+
+- The endpoint is just one - /api\*
+- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  
+    (The only way around this is to specify nationality.)
+  output_spec.json: These are some of the current issues with the Random User API
+
+- The endpoint is just one - /api*
+- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  
+    (The only way around this is to specify nationality.)

@@ -1,0 +1,16 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/breweries/{id}']['get']['description']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/breweries']['get']['parameters'][1]['example']:
+  input_spec.json: -117.129593,32.714813
+  output_spec.json: -117.129593
+root['paths']['/breweries']['get']['parameters'][4]['example']:
+  input_spec.json: 1
+  output_spec.json: 1
+root['paths']['/breweries']['get']['parameters'][5]['example']:
+  input_spec.json: 10
+  output_spec.json: 10

@@ -1,0 +1,189 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "balldontlie",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://balldontlie.io"
+    }
+  ],
+  "tags": [
+    {
+      "name": "players"
+    },
+    {
+      "name": "teams"
+    },
+    {
+      "name": "games"
+    },
+    {
+      "name": "stats"
+    }
+  ],
+  "info": {
+    "contact": {}
+  },
+  "paths": {
+    "/api/v1/players": {
+      "get": {
+        "tags": ["players"],
+        "summary": "all players (search)",
+        "description": "all players (search)",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/players/237": {
+      "get": {
+        "tags": ["players"],
+        "summary": "specific player",
+        "description": "specific player",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/teams": {
+      "get": {
+        "tags": ["teams"],
+        "summary": "all teams",
+        "description": "all teams",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/teams/1": {
+      "get": {
+        "tags": ["teams"],
+        "summary": "specific team",
+        "description": "specific team",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/games": {
+      "get": {
+        "tags": ["games"],
+        "summary": "all games (example parameters)",
+        "description": "all games (example parameters)",
+        "parameters": [
+          {
+            "name": "seasons[]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "team_ids[]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/games/32881": {
+      "get": {
+        "tags": ["games"],
+        "summary": "specific game",
+        "description": "specific game",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/stats": {
+      "get": {
+        "tags": ["stats"],
+        "summary": "all stats (example parameters)",
+        "description": "all stats (example parameters)",
+        "parameters": [
+          {
+            "name": "season[]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "player_ids[]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/players/9999": {
+      "get": {
+        "tags": ["players"],
+        "operationId": "getPlayer9999",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/teams/9999": {
+      "get": {
+        "tags": ["teams"],
+        "operationId": "getTeam9999",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/games/99999": {
+      "get": {
+        "tags": ["games"],
+        "operationId": "getGame99999",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

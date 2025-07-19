@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Quartz-Scheduler",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/quartz/mail/create": {
+      "post": {
+        "tags": ["default"],
+        "summary": "CREATE A MAIL SCHEDULE",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"},
+                  "scheduledTime": {"type": "string", "format": "date-time"},
+                  "subject": {"type": "string"},
+                  "toEmail": {"type": "string", "format": "email"},
+                  "username": {"type": "string"},
+                  "zoneId": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Mail schedule created successfully."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/delete/{id}": {
+      "delete": {
+        "tags": ["default"],
+        "summary": "DELETE A MAIL SCHEDULE",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Mail schedule deleted successfully."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/list": {
+      "get": {
+        "tags": ["default"],
+        "summary": "GET ALL MAIL SCHEDULES CREATED BY USER",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "schedules": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/list/{id}": {
+      "get": {
+        "tags": ["default"],
+        "summary": "GET MAIL SCHEDULE BY ID",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "schedule": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/update/{id}": {
+      "post": {
+        "tags": ["default"],
+        "summary": "UPDATE MAIL SCHEDULE",
+        "description": "Update an existing mail schedule by ID.",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scheduleId": {"type": "integer"},
+                  "message": {"type": "string"},
+                  "scheduledTime": {"type": "string", "format": "date-time"},
+                  "subject": {"type": "string"},
+                  "toEmail": {"type": "string", "format": "email"},
+                  "username": {"type": "string"},
+                  "zoneId": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Mail schedule updated successfully."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Google Geocoding API",
+    "version": "1.0.0",
+    "description": "API for geocoding and reverse geocoding addresses."
+  },
+  "servers": [
+    {
+      "url": "https://maps.googleapis.com"
+    }
+  ],
+  "paths": {
+    "/maps/api/geocode/json": {
+      "get": {
+        "summary": "Geocode and Reverse Geocode Addresses",
+        "description": "Convert a street address into geographic coordinates or vice versa.",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            },
+            "description": "Specifies the media type of the response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "headers": {
+              "Content-Type": {
+                "description": "The media type of the response",
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "address_components": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "long_name": {
+                                  "type": "string"
+                                },
+                                "short_name": {
+                                  "type": "string"
+                                },
+                                "types": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "formatted_address": {
+                            "type": "string"
+                          },
+                          "geometry": {
+                            "type": "object",
+                            "properties": {
+                              "bounds": {
+                                "type": "object",
+                                "properties": {
+                                  "northeast": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lat": {
+                                        "type": "number"
+                                      },
+                                      "lng": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  },
+                                  "southwest": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lat": {
+                                        "type": "number"
+                                      },
+                                      "lng": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "location": {
+                                "type": "object",
+                                "properties": {
+                                  "lat": {
+                                    "type": "number"
+                                  },
+                                  "lng": {
+                                    "type": "number"
+                                  }
+                                }
+                              },
+                              "location_type": {
+                                "type": "string"
+                              },
+                              "viewport": {
+                                "type": "object",
+                                "properties": {
+                                  "northeast": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lat": {
+                                        "type": "number"
+                                      },
+                                      "lng": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  },
+                                  "southwest": {
+                                    "type": "object",
+                                    "properties": {
+                                      "lat": {
+                                        "type": "number"
+                                      },
+                                      "lng": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "place_id": {
+                            "type": "string"
+                          },
+                          "types": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

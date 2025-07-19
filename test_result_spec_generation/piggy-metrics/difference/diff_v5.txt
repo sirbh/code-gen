@@ -1,0 +1,13 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['paths']['/accounts/']['post']['summary']", "root['paths']['/accounts/']['post']['requestBody']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/accounts/']['post']['description']:
+  input_spec.json: Register new account.
+  output_spec.json: This endpoint allows the creation of a new account.
+root['paths']['/accounts/']['post']['responses']:
+  input_spec.json: {'200': {'description': 'Valid request.', 'content': {'application/json': {'schema': {}}}}, 'default': {'description': 'Invalid request.'}}
+  output_spec.json: {'201': {'description': 'Account created successfully.', 'content': {'application/json': {'schema': {'type': 'object', 'properties': {'id': {'type': 'string'}, 'username': {'type': 'string'}, 'email': {'type': 'string'}}}}}}, '400': {'description': 'Invalid input.'}}

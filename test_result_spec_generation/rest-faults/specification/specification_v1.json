@@ -1,0 +1,172 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sample API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/z": {
+      "get": {
+        "summary": "Retrieve an integer value",
+        "responses": {
+          "200": {
+            "description": "Returns an integer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update or set an integer value",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Indicates successful update"
+          }
+        }
+      }
+    },
+    "/k": {
+      "get": {
+        "summary": "Retrieve a FooDto object",
+        "responses": {
+          "200": {
+            "description": "Returns a FooDto object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FooDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update or set a FooDto object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FooDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Indicates successful update"
+          }
+        }
+      }
+    },
+    "/y": {
+      "get": {
+        "summary": "Retrieve a FooDto object",
+        "responses": {
+          "200": {
+            "description": "Returns a FooDto object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FooDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new FooDto object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FooDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Returns a string indicating successful creation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a FooDto object",
+        "responses": {
+          "200": {
+            "description": "Indicates successful deletion"
+          }
+        }
+      }
+    },
+    "/x": {
+      "get": {
+        "summary": "Retrieve a string value",
+        "responses": {
+          "200": {
+            "description": "Returns a string",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FooDto": {
+        "type": "object",
+        "properties": {
+          "i": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 100
+          },
+          "b": {
+            "type": "boolean"
+          },
+          "s": {
+            "type": "string",
+            "enum": ["FOO", "BAR"]
+          }
+        },
+        "required": ["b"]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Items:**
+- **Description in Info Section:** Remove `root['info']['description']`.
+- **Request Body Required Fields:** Remove `root['paths']['/quartz/mail/create']['post']['requestBody']['required']` and `root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['required']`.
+- **Parameter Required Fields:** Remove `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['required']`, `root['paths']['/quartz/mail/list']['get']['parameters'][0]['schema']['default']`, `root['paths']['/quartz/mail/list']['get']['parameters'][1]['schema']['default']`, `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['required']`, and `root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['required']`.
+
+### 2. **Re-add Removed Items:**
+- **Parameters:** Re-add `root['paths']['/quartz/mail/create']['post']['parameters']`.
+- **Response Content:** Re-add `root['paths']['/quartz/mail/create']['post']['responses']['200']['content']`, `root['paths']['/quartz/mail/delete/{id}']['delete']['responses']['200']['content']`, `root['paths']['/quartz/mail/list']['get']['responses']['200']['content']`, `root['paths']['/quartz/mail/list/{id}']['get']['responses']['200']['content']`, and `root['paths']['/quartz/mail/update/{id}']['post']['responses']['200']['content']`.
+- **Examples:** Re-add examples for parameters and responses in the paths `/quartz/mail/delete/{id}`, `/quartz/mail/list`, `/quartz/mail/list/{id}`, and `/quartz/mail/update/{id}`.
+- **Post Description:** Re-add `root['paths']['/quartz/mail/update/{id}']['post']['description']`.
+
+### 3. **Revert Changed Values:**
+- **Info Title:** Change `root['info']['title']` from "Quartz-Scheduler API" back to "Quartz-Scheduler".
+- **Summaries:** Revert summaries in all paths to their original uppercase format.
+- **Request Body Schema:** Revert `root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']` and `root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']` to include the original example objects.
+- **Parameter Names and Locations:** Revert parameter names and locations in all paths to their original values, such as changing "id" back to "accept" and "username" back to "id" where applicable.
+- **Parameter Types:** Revert parameter types in all paths to their original types, such as changing "string" back to "integer" where applicable.
+- **Response Descriptions:** Change response descriptions in all paths from "Successful response with no content." back to "Successful response".
+
+### 4. **Re-add Removed Iterable Items:**
+- **Parameters:** Re-add the removed parameters in the paths `/quartz/mail/delete/{id}`, `/quartz/mail/list`, `/quartz/mail/list/{id}`, and `/quartz/mail/update/{id}` as specified in the `ITERABLE_ITEM_REMOVED` section.
+
+By following these steps, you will revert `output_spec.json` to match the original specification accurately.

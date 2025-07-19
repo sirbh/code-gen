@@ -1,0 +1,30 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['info']['description']", "root['paths']['/maps/api/geocode/json']['get']['parameters'][0]['required']", "root['paths']['/maps/api/geocode/json']['get']['parameters'][0]['description']", "root['paths']['/maps/api/geocode/json']['get']['parameters'][0]['schema']['example']", "root['paths']['/maps/api/geocode/json']['get']['responses']['200']['headers']['Content-Type']['description']", "root['paths']['/maps/api/geocode/json']['get']['responses']['200']['content']['application/json']['schema']['properties']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/maps/api/geocode/json']['get']['tags']", "root['paths']['/maps/api/geocode/json']['get']['parameters'][0]['example']", "root['paths']['/maps/api/geocode/json']['get']['responses']['200']['content']['application/json']['example']"])
+
+=== VALUES_CHANGED ===
+root['info']['title']:
+  input_spec.json: Google Geocoding
+  output_spec.json: Google Geocoding API
+root['paths']['/maps/api/geocode/json']['get']['summary']:
+  input_spec.json: geocode Copy
+  output_spec.json: Geocode and Reverse Geocode Addresses
+root['paths']['/maps/api/geocode/json']['get']['description']:
+  input_spec.json: The Geocoding API is a service that provides geocoding and reverse geocoding of addresses.
+
+**Geocoding** is the process of converting addresses (like a street address) into geographic coordinates (like latitude and longitude), which you can use to place markers on a map, or position the map.
+
+**Reverse geocoding** is the process of converting geographic coordinates into a human-readable address.
+
+You can also use the Geocoding API to find the address for a given place ID.
+
+To see countries currently supported by the Google Maps Platform Geocoding API, please consult the [Google Maps coverage data](https://developers.google.com/maps/coverage). The accuracy of geocoded locations may vary per country, so you should consider using the returned `location_type` field to determine if a good enough match has been found for the purposes of your application. Please note that the availability of geocoding data depends on our contracts with data providers, so it is subject to change.
+  output_spec.json: Convert a street address into geographic coordinates or vice versa.
+root['paths']['/maps/api/geocode/json']['get']['responses']['200']['description']:
+  input_spec.json: OK
+  output_spec.json: Successful response

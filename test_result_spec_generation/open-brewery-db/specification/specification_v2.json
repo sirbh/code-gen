@@ -1,0 +1,186 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OpenBreweryDB",
+    "version": "1.0.0",
+    "description": "The OpenBreweryDB provides a comprehensive dataset of breweries, cideries, brewpubs, and bottleshops."
+  },
+  "servers": [
+    {
+      "url": "https://api.openbrewerydb.org/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Breweries",
+      "description": "Operations related to breweries"
+    }
+  ],
+  "paths": {
+    "/breweries": {
+      "get": {
+        "summary": "with all query params",
+        "description": "",
+        "tags": ["Breweries"],
+        "parameters": [
+          {
+            "name": "by_city",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "San Diego"
+          },
+          {
+            "name": "by_dist",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "example": 10
+          },
+          {
+            "name": "by_name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Modern Times"
+          },
+          {
+            "name": "by_postal",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "92101"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 20
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/breweries/{id}": {
+      "get": {
+        "summary": "get a single brewery",
+        "description": "Provide the uuid for id path parameter for example ```modern-times-beer-san-diego```",
+        "tags": ["Breweries"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Enter the brewery uuid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "modern-times-beer-san-diego"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/breweries/search": {
+      "get": {
+        "summary": "search breweries",
+        "description": "",
+        "tags": ["Breweries"],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "IPA"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/breweries/autocomplete": {
+      "get": {
+        "summary": "autocomplete",
+        "description": "",
+        "tags": ["Breweries"],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Lagunitas"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/breweries/random": {
+      "get": {
+        "summary": "random",
+        "description": "",
+        "tags": ["Breweries"],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

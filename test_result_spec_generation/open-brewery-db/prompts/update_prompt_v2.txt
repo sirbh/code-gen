@@ -1,0 +1,62 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Items**
+- **Components**: Delete the entire `components` section.
+- **Paths Descriptions and Parameters**:
+  - Remove the `description` and `required` fields for all parameters under the following paths:
+    - `/breweries`
+    - `/breweries/search`
+    - `/breweries/autocomplete`
+  - Remove the `description` fields for the following paths:
+    - `/breweries`
+    - `/breweries/search`
+    - `/breweries/autocomplete`
+    - `/breweries/random`
+- **Responses**:
+  - Remove the `schema` field under `responses['200']['content']['application/json']` for the following paths:
+    - `/breweries`
+    - `/breweries/{id}`
+    - `/breweries/search`
+    - `/breweries/autocomplete`
+    - `/breweries/random`
+
+### 2. **Re-add Removed Items**
+- **Tags**:
+  - Reintroduce the `tags` section at the root level.
+  - Reintroduce the `tags` field for the following paths:
+    - `/breweries`
+    - `/breweries/{id}`
+    - `/breweries/search`
+    - `/breweries/autocomplete`
+    - `/breweries/random`
+- **Examples**:
+  - Reintroduce the `example` field for all parameters under the following paths:
+    - `/breweries`
+    - `/breweries/{id}`
+    - `/breweries/search`
+    - `/breweries/autocomplete`
+
+### 3. **Revert Changed Values**
+- **Info Section**:
+  - Change `title` from `OpenBreweryDB API` back to `OpenBreweryDB`.
+  - Change `description` to include the original detailed description with the logo and links.
+- **Paths Summaries and Descriptions**:
+  - `/breweries`:
+    - Change `summary` from `List Breweries` back to `with all query params`.
+    - Change `responses['200']['description']` from `Successful response with a list of breweries in JSON format.` back to `Successful response`.
+  - `/breweries/{id}`:
+    - Change `summary` from `Get Brewery` back to `get a single brewery`.
+    - Change `description` from `Retrieves details of a single brewery by its unique identifier.` back to `Provide the uuid for id path parameter for example ```modern-times-beer-san-diego```.
+    - Change `parameters[0]['description']` from `The unique identifier (UUID) of the brewery.` back to `Enter the brewery uuid`.
+    - Change `responses['200']['description']` from `Successful response with brewery details in JSON format.` back to `Successful response`.
+  - `/breweries/search`:
+    - Change `summary` from `Search Breweries` back to `search breweries`.
+    - Change `responses['200']['description']` from `Successful response with search results in JSON format.` back to `Successful response`.
+  - `/breweries/autocomplete`:
+    - Change `summary` from `Autocomplete` back to `autocomplete`.
+    - Change `responses['200']['description']` from `Successful response with autocomplete suggestions in JSON format.` back to `Successful response`.
+  - `/breweries/random`:
+    - Change `summary` from `Random Brewery` back to `random`.
+    - Change `responses['200']['description']` from `Successful response with random brewery details in JSON format.` back to `Successful response`.
+
+By following these steps, you will revert `output_spec.json` to match the original specification accurately.

@@ -1,0 +1,146 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Random User Generator API",
+    "description": "An API to generate random user data for application testing and other purposes.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api": {
+      "get": {
+        "summary": "Retrieve random user data",
+        "description": "This endpoint retrieves random user data, including personal information such as name, gender, location, email, and profile picture.",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "application/json"
+            },
+            "description": "Specifies the media type of the response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request was successful, and random user data is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "gender": { "type": "string" },
+                          "name": {
+                            "type": "object",
+                            "properties": {
+                              "title": { "type": "string" },
+                              "first": { "type": "string" },
+                              "last": { "type": "string" }
+                            }
+                          },
+                          "location": {
+                            "type": "object",
+                            "properties": {
+                              "street": { "type": "string" },
+                              "city": { "type": "string" },
+                              "state": { "type": "string" },
+                              "country": { "type": "string" },
+                              "postcode": { "type": "string" },
+                              "coordinates": {
+                                "type": "object",
+                                "properties": {
+                                  "latitude": { "type": "string" },
+                                  "longitude": { "type": "string" }
+                                }
+                              },
+                              "timezone": {
+                                "type": "object",
+                                "properties": {
+                                  "offset": { "type": "string" },
+                                  "description": { "type": "string" }
+                                }
+                              }
+                            }
+                          },
+                          "email": { "type": "string" },
+                          "login": {
+                            "type": "object",
+                            "properties": {
+                              "uuid": { "type": "string" },
+                              "username": { "type": "string" },
+                              "password": { "type": "string" },
+                              "salt": { "type": "string" },
+                              "md5": { "type": "string" },
+                              "sha1": { "type": "string" },
+                              "sha256": { "type": "string" }
+                            }
+                          },
+                          "dob": {
+                            "type": "object",
+                            "properties": {
+                              "date": { "type": "string", "format": "date-time" },
+                              "age": { "type": "integer" }
+                            }
+                          },
+                          "registered": {
+                            "type": "object",
+                            "properties": {
+                              "date": { "type": "string", "format": "date-time" },
+                              "age": { "type": "integer" }
+                            }
+                          },
+                          "phone": { "type": "string" },
+                          "cell": { "type": "string" },
+                          "id": {
+                            "type": "object",
+                            "properties": {
+                              "name": { "type": "string" },
+                              "value": { "type": "string" }
+                            }
+                          },
+                          "picture": {
+                            "type": "object",
+                            "properties": {
+                              "large": { "type": "string", "format": "uri" },
+                              "medium": { "type": "string", "format": "uri" },
+                              "thumbnail": { "type": "string", "format": "uri" }
+                            }
+                          },
+                          "nat": { "type": "string" }
+                        }
+                      }
+                    },
+                    "info": {
+                      "type": "object",
+                      "properties": {
+                        "seed": { "type": "string" },
+                        "results": { "type": "integer" },
+                        "page": { "type": "integer" },
+                        "version": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was invalid or missing a required parameter."
+          },
+          "404": {
+            "description": "The requested resource was not found."
+          },
+          "500": {
+            "description": "An error occurred on the server."
+          }
+        }
+      }
+    }
+  }
+}

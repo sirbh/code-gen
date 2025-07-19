@@ -1,0 +1,23 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Modify the Example Value for Parameter 4 in `/breweries` Path:**
+   - **Location:** `root['paths']['/breweries']['get']['parameters'][4]['example']`
+   - **Current Value in `output_spec.json`:** `1`
+   - **Action:** Ensure the example value remains as `1`. No change is needed here as it matches the original spec.
+
+2. **Modify the Example Value for Parameter 5 in `/breweries` Path:**
+   - **Location:** `root['paths']['/breweries']['get']['parameters'][5]['example']`
+   - **Current Value in `output_spec.json`:** `10`
+   - **Action:** Ensure the example value remains as `10`. No change is needed here as it matches the original spec.
+
+3. **Revert the Description for the `/breweries/{id}` Path:**
+   - **Location:** `root['paths']['/breweries/{id}']['get']['description']`
+   - **Current Value in `output_spec.json`:** `Retrieve detailed information about a specific brewery using its unique identifier.`
+   - **Action:** Change the description to match the original spec:
+     - **Original Description:** `Provide the uuid for id path parameter for example \\`modern-times-beer-san-diego\\``
+     - **Steps to Revert:**
+       - Open the `output_spec.json` file.
+       - Navigate to the specified path location.
+       - Replace the current description with the original description provided above.
+
+By following these steps, the `output_spec.json` will be reverted to match the original specification accurately.

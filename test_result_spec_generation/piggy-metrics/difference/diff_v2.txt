@@ -1,0 +1,37 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/accounts/']", "root['paths']['/accounts/{account}']['get']['parameters'][0]['description']", "root['paths']['/accounts/{account}']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/accounts/current']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/accounts/current']['put']['responses']['200']['content']['application/json']['schema']", "root['paths']['/accounts/demo']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/{account}']['get']['parameters'][0]['description']", "root['paths']['/statistics/{account}']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/{account}']['put']['parameters'][0]['description']", "root['paths']['/statistics/{account}']['put']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/current']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/demo']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/notifications/settings/current']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/notifications/settings/current']['put']['responses']['200']['content']['application/json']['schema']"])
+
+=== VALUES_CHANGED ===
+root['servers'][0]['url']:
+  input_spec.json: http://localhost:8000
+  output_spec.json: https://api.piggymetrics.com
+root['servers'][0]['description']:
+  input_spec.json: Local Production Server for Piggy Metrics.
+  output_spec.json: Production server
+root['paths']['/accounts/{account}']['get']['description']:
+  input_spec.json: Get specified account data.
+  output_spec.json: Get account details by account ID.
+root['paths']['/accounts/current']['get']['description']:
+  input_spec.json: Get current account data.
+  output_spec.json: Get current account details.
+root['paths']['/accounts/current']['put']['description']:
+  input_spec.json: Save current account data.
+  output_spec.json: Update current account details.
+root['paths']['/accounts/demo']['get']['description']:
+  input_spec.json: Get demo account data (pre-filled incomes/expenses items, etc).
+  output_spec.json: Get demo account details.
+root['paths']['/statistics/{account}']['get']['description']:
+  input_spec.json: Get specified account statistics.
+  output_spec.json: Get statistics for a specific account.
+root['paths']['/statistics/{account}']['put']['description']:
+  input_spec.json: Create or update time series datapoint for specified account.
+  output_spec.json: Update statistics for a specific account.
+root['paths']['/notifications/settings/current']['get']['description']:
+  input_spec.json: Get current account notification settings.
+  output_spec.json: Get current notification settings.
+root['paths']['/notifications/settings/current']['put']['description']:
+  input_spec.json: Save current account notification settings.
+  output_spec.json: Update current notification settings.

@@ -1,0 +1,43 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Dictionary Items**
+- **Paths**: Remove the following summary entries from the paths:
+  - `/accounts`
+  - `/accounts/{account}`
+  - `/accounts/current`
+  - `/accounts/demo`
+  - `/statistics/{account}`
+  - `/statistics/current`
+  - `/statistics/demo`
+  - `/notifications/settings/current`
+
+### 2. **Reintroduce Removed Dictionary Items**
+- **Servers**: Re-add the `servers` section that was removed.
+- **Paths**: Reintroduce the following descriptions and schemas:
+  - `/accounts/`
+  - `/accounts/{account}`
+    - `get` description, parameters, and response schema
+  - `/accounts/current`
+    - `get` and `put` descriptions and response schemas
+  - `/accounts/demo`
+    - `get` description and response schema
+  - `/statistics/{account}`
+    - `get` and `put` descriptions, parameters, and response schemas
+  - `/statistics/current`
+    - `get` description and response schema
+  - `/statistics/demo`
+    - `get` description and response schema
+  - `/notifications/settings/current`
+    - `get` and `put` descriptions and response schemas
+
+### 3. **Revert Changed Values**
+- **Info**:
+  - Change the `title` from "Piggy Metrics API" back to "Piggy Metrics".
+  - Change the `description` from "API for managing account data, statistics, and notification settings." back to "OpenAPI Specification for Piggy Metrics, a simple financial advisor app built to demonstrate the Microservice Architecture Pattern using Spring Boot, Spring Cloud and Docker. This file was created by the PRAB (Public REST API Benchmark) developers."
+- **Paths**:
+  - For each path, revert the `responses` descriptions:
+    - Change "Successful retrieval of..." back to "Valid request."
+    - Change "Indicates an invalid request." back to "Invalid request."
+
+### 4. **Verification**
+- After making these changes, ensure that the `output_spec.json` matches the original specification in terms of structure, content, and descriptions. Double-check each path and response to confirm accuracy.

@@ -1,0 +1,17 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Restore the Removed Description**:
+   - Navigate to the path `root['paths']['/breweries/{id}']['get']` in the `output_spec.json` file.
+   - Add the missing `description` field back to this path. Ensure that the description matches exactly what was present in the original specification.
+
+2. **Correct the Example Value for Latitude and Longitude**:
+   - Locate the path `root['paths']['/breweries']['get']['parameters'][1]['example']` in the `output_spec.json` file.
+   - Update the `example` value from `-117.129593` to `-117.129593,32.714813` to match the original specification.
+
+3. **Verify Example Values for Pagination Parameters**:
+   - Check the path `root['paths']['/breweries']['get']['parameters'][4]['example']` in the `output_spec.json` file.
+     - Ensure the `example` value is `1`. If it is already `1`, no change is needed.
+   - Similarly, verify the path `root['paths']['/breweries']['get']['parameters'][5]['example']`.
+     - Ensure the `example` value is `10`. If it is already `10`, no change is needed.
+
+By following these steps, the `output_spec.json` will be reverted to match the original specification accurately.

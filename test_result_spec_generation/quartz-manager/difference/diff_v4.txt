@@ -1,0 +1,31 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/quartz/mail/update/{id}']['post']['parameters'][2]['required']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['message']:
+  input_spec.json: Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.
+  output_spec.json: The original message
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['example']:
+  input_spec.json: 7
+  output_spec.json: 7
+root['paths']['/quartz/mail/list']['get']['parameters'][1]['example']:
+  input_spec.json: 0
+  output_spec.json: 0
+root['paths']['/quartz/mail/list']['get']['parameters'][2]['example']:
+  input_spec.json: 1000
+  output_spec.json: 1000
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['example']:
+  input_spec.json: 9
+  output_spec.json: 9
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['message']:
+  input_spec.json: Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.
+  output_spec.json: The original message
+
+=== ITERABLE_ITEM_REMOVED ===
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][3]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][3]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}

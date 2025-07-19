@@ -1,0 +1,32 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['tags'][0]['description']"])
+
+=== VALUES_CHANGED ===
+root['servers'][0]['url']:
+  input_spec.json: https://randomuser.me
+  output_spec.json: https://api.randomuser.me/
+root['tags'][0]['name']:
+  input_spec.json: Overview
+  output_spec.json: User
+root['paths']['/api']['get']['tags'][0]:
+  input_spec.json: Endpoints
+  output_spec.json: User
+
+=== ITERABLE_ITEM_REMOVED ===
+root['tags'][1]:
+  {'name': 'Overview > Authentication', 'description': 'Authorization (authentication) is not required to use the Random User Generator API.'}
+root['tags'][2]:
+  {'name': 'Overview > Base URL', 'description': '```\nhttps://randomuser.me/\n\n```'}
+root['tags'][3]:
+  {'name': 'Overview > Support', 'description': "If you encounter any errors when using the API, please reach us at [support@randomuser.me](mailto:support@randomuser.me) with the error details, including the HTTP status code and error message. We'll do our best to resolve the issue as quickly as possible.\n\nFor questions/feedback or would like to get in touch with us, tweet us [@randomapi](https://twitter.com/randomapi)\n\nFound a bug or have an idea?  \nContribute to randomuser.me's database on our [Github Repo](https://github.com/RandomAPI/Randomuser.me-Node)."}
+root['tags'][4]:
+  {'name': 'Overview > Issues', 'description': 'These are some of the current issues with the Random User API\n\n- The endpoint is just one - /api\\*\n- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.  \n    (The only way around this is to specify nationality.)'}
+root['tags'][5]:
+  {'name': 'Endpoints', 'description': 'Only `GET` requests are allowed now.'}
+root['tags'][6]:
+  {'name': 'HTTP and Error Codes', 'description': 'The Random API returns HTTP status code and error code messages.\n\n| HTTP Code | Message | Description |\n| --- | --- | --- |\n| 200 | OK | The request was successful |\n| 400 | Bad Request | The request was invalid or missing a required parameter. |\n| 404 | Not Found | The requested resource not found. |\n| 500 | Internal Server Error | An error occurred on the server |'}
+root['tags'][7]:
+  {'name': 'Random API Flags', 'description': '## List and explanation of the flags\n\nThe Random User Generator API ([https://randomuser.me/](https://randomuser.me/)) is a free, open-source API that provides randomly generated user data. Here are the flags you can use with the API:'}

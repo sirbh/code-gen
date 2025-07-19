@@ -1,0 +1,75 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['paths']['/breweries']['get']['description']", "root['paths']['/breweries/search']['get']['description']", "root['paths']['/breweries/autocomplete']['get']['description']", "root['paths']['/breweries/random']['get']['description']"])
+
+=== VALUES_CHANGED ===
+root['info']['description']:
+  input_spec.json: ![Open Brewery DB Logo](https://github.com/cipherwizard9/openbrewerydb/raw/master/obdb-logo-md.jpg)
+
+This is the postman collection for [Open Brewery DB API](https://www.openbrewerydb.org/) which is served by a [REST API built with Ruby on Rails](https://github.com/chrisjm/openbrewerydb-rails-api)
+
+## About Open Brewery DB
+Open Brewery DB is a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops. The goal of Open Brewery DB is to maintain an open-source, community-driven dataset and provide a public API. It is our belief that public information should be freely accessible for the betterment of the beer community and the happiness of web developers and data analysts.
+  output_spec.json: The OpenBreweryDB provides a comprehensive dataset of breweries, cideries, brewpubs, and bottleshops.
+root['tags'][0]['name']:
+  input_spec.json: List Breweries
+  output_spec.json: Breweries
+root['tags'][0]['description']:
+  input_spec.json: Returns a list of breweries.
+
+**Note:** For the parameters, you can use underscores or url encoding for spaces.
+  output_spec.json: Operations related to breweries
+root['paths']['/breweries']['get']['tags'][0]:
+  input_spec.json: List Breweries
+  output_spec.json: Breweries
+root['paths']['/breweries']['get']['parameters'][0]['example']:
+  input_spec.json: san diego
+  output_spec.json: San Diego
+root['paths']['/breweries']['get']['parameters'][1]['example']:
+  input_spec.json: -117.129593,32.714813
+  output_spec.json: 10
+root['paths']['/breweries']['get']['parameters'][2]['example']:
+  input_spec.json: 10 Barrel Brewing Co
+  output_spec.json: Modern Times
+root['paths']['/breweries']['get']['parameters'][3]['example']:
+  input_spec.json: 92101-6618
+  output_spec.json: 92101
+root['paths']['/breweries']['get']['parameters'][4]['example']:
+  input_spec.json: 1
+  output_spec.json: 1
+root['paths']['/breweries']['get']['parameters'][5]['example']:
+  input_spec.json: 10
+  output_spec.json: 20
+root['paths']['/breweries']['get']['parameters'][6]['example']:
+  input_spec.json: name:desc
+  output_spec.json: name
+root['paths']['/breweries/{id}']['get']['tags'][0]:
+  input_spec.json: Get Brewery
+  output_spec.json: Breweries
+root['paths']['/breweries/search']['get']['tags'][0]:
+  input_spec.json: Search Breweries
+  output_spec.json: Breweries
+root['paths']['/breweries/search']['get']['parameters'][0]['example']:
+  input_spec.json: dog
+  output_spec.json: IPA
+root['paths']['/breweries/autocomplete']['get']['tags'][0]:
+  input_spec.json: Autocomplete
+  output_spec.json: Breweries
+root['paths']['/breweries/autocomplete']['get']['parameters'][0]['example']:
+  input_spec.json: dog
+  output_spec.json: Lagunitas
+root['paths']['/breweries/random']['get']['tags'][0]:
+  input_spec.json: Random Brewery
+  output_spec.json: Breweries
+
+=== ITERABLE_ITEM_REMOVED ===
+root['tags'][1]:
+  {'name': 'Get Brewery', 'description': 'Get a single brewery.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces.'}
+root['tags'][2]:
+  {'name': 'Search Breweries', 'description': 'Search for breweries based on a search term\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces.'}
+root['tags'][3]:
+  {'name': 'Autocomplete', 'description': 'Return a list of names and ids of breweries based on a search term. This endpoint is typically used for a drop-down selection.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces.'}
+root['tags'][4]:
+  {'name': 'Random Brewery'}

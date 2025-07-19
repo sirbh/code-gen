@@ -1,0 +1,43 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### Remove Added Items:
+1. **Tags Descriptions**:
+   - Remove the `description` field from each tag in the `tags` array.
+
+2. **Parameters Descriptions and Examples**:
+   - For the endpoint `/api/v1/players`, remove the `description`, `required`, and `example` fields from the first parameter.
+   - Remove the entire `parameters` array from the endpoint `/api/v1/players/237`.
+   - Remove the entire `parameters` array from the endpoint `/api/v1/teams/1`.
+   - For the endpoint `/api/v1/games`, remove the `description`, `required`, and `example` fields from the first and second parameters.
+   - Remove the entire `parameters` array from the endpoint `/api/v1/games/32881`.
+   - For the endpoint `/api/v1/stats`, remove the `description`, `required`, and `example` fields from the first and second parameters.
+
+### Restore Removed Items:
+1. **Info Section**:
+   - Restore the `title` and `version` fields in the `info` section.
+
+2. **Paths**:
+   - Restore the entire path `/api/v1/players/9999`.
+   - Restore the entire path `/api/v1/teams/9999`.
+   - Restore the entire path `/api/v1/games/99999`.
+   - For the endpoint `/api/v1/players`, restore the `operationId` field in the `get` method.
+   - Restore the `schema.example` field for the first parameter in the endpoint `/api/v1/players`.
+   - For the endpoint `/api/v1/players/237`, restore the `operationId` field in the `get` method.
+   - For the endpoint `/api/v1/teams`, restore the `operationId` field in the `get` method.
+   - For the endpoint `/api/v1/teams/1`, restore the `operationId` field in the `get` method.
+   - For the endpoint `/api/v1/games`, restore the `operationId` field in the `get` method.
+   - Restore the `schema.example` field for the first and second parameters in the endpoint `/api/v1/games`.
+   - For the endpoint `/api/v1/games/32881`, restore the `operationId` field in the `get` method.
+   - For the endpoint `/api/v1/stats`, restore the `operationId` field in the `get` method.
+   - Restore the `schema.example` field for the first and second parameters in the endpoint `/api/v1/stats`.
+
+### Revert Changed Values:
+1. **Contact Information**:
+   - Remove the `name`, `url`, and `email` fields from the `contact` object in the `info` section.
+
+2. **Summaries and Descriptions**:
+   - For the endpoint `/api/v1/players/237`, change the `summary` back to `specific player` and the `description` back to `specific player`.
+   - For the endpoint `/api/v1/teams/1`, change the `summary` back to `specific team` and the `description` back to `specific team`.
+   - For the endpoint `/api/v1/games/32881`, change the `summary` back to `specific game` and the `description` back to `specific game`.
+
+By following these steps, you will revert `output_spec.json` to match the original specification.

@@ -1,0 +1,25 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+1. **Operation IDs**:
+   - Change `getAllPlayers` back to `allPlayersSearch` for the endpoint `/api/v1/players`.
+   - Change `getSpecificPlayer` back to `specificPlayer` for the endpoint `/api/v1/players/237`.
+   - Change `getAllTeams` back to `allTeams` for the endpoint `/api/v1/teams`.
+   - Change `getSpecificTeam` back to `specificTeam` for the endpoint `/api/v1/teams/1`.
+   - Change `getAllGames` back to `allGamesExampleParameters` for the endpoint `/api/v1/games`.
+   - Change `getSpecificGame` back to `specificGame` for the endpoint `/api/v1/games/32881`.
+   - Change `getAllStats` back to `allStatsExampleParameters` for the endpoint `/api/v1/stats`.
+
+2. **Parameter Examples**:
+   - Change the example value from `LeBron` back to `lebron` for the first parameter in the `/api/v1/players` endpoint.
+   - Change the example value from `2021` back to `2018` for the first parameter in the `/api/v1/games` endpoint.
+   - Change the example value from `2021` back to `2018` for the first parameter in the `/api/v1/stats` endpoint.
+
+3. **Invalid ID Summaries and Descriptions**:
+   - Change the summary from `Invalid player ID` back to `specific player invalid id` for the endpoint `/api/v1/players/9999`.
+   - Change the description from `This endpoint returns an error for an invalid player ID.` back to `specific player invalid id` for the endpoint `/api/v1/players/9999`.
+   - Change the summary from `Invalid team ID` back to `specific team invalid id` for the endpoint `/api/v1/teams/9999`.
+   - Change the description from `This endpoint returns an error for an invalid team ID.` back to `specific team invalid id` for the endpoint `/api/v1/teams/9999`.
+   - Change the summary from `Invalid game ID` back to `specific game invalid id` for the endpoint `/api/v1/games/99999`.
+   - Change the description from `This endpoint returns an error for an invalid game ID.` back to `specific game invalid id` for the endpoint `/api/v1/games/99999`.
+
+By following these steps, you will successfully revert the `output_spec.json` to match the original specification as outlined in `input_spec.json`. Ensure each change is made accurately to maintain consistency with the original document.

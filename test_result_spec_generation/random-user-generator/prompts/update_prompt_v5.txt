@@ -1,0 +1,29 @@
+To revert the changes in `output_spec.json` to match the original `input_spec.json`, follow these steps:
+
+1. **Correct the URL Formatting in the Description of the Third Tag:**
+   - Locate the third element in the `tags` array.
+   - Find the `description` field within this element.
+   - Update the `description` field to include a newline character at the end of the URL. 
+     - **Current in `output_spec.json`:**
+       ```
+       https://randomuser.me/
+       ```
+     - **Change to:**
+       ```
+       https://randomuser.me/\n
+       ```
+
+2. **Adjust the Description Formatting in the Fifth Tag:**
+   - Locate the fifth element in the `tags` array.
+   - Find the `description` field within this element.
+   - Ensure the asterisk in the endpoint description is escaped properly.
+     - **Current in `output_spec.json`:**
+       ```
+       - The endpoint is just one - /api*
+       ```
+     - **Change to:**
+       ```
+       - The endpoint is just one - /api\*
+       ```
+
+By making these adjustments, the `output_spec.json` will be reverted to match the original `input_spec.json` accurately.

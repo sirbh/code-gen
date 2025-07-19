@@ -1,0 +1,36 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+1. **Remove the POST method for `/accounts/` path:**
+   - Locate the `paths` object in `output_spec.json`.
+   - Find the `/accounts/` path.
+   - Remove the entire `post` method definition under this path.
+
+2. **Revert parameter descriptions for `/accounts/{account}` and `/statistics/{account}` paths:**
+   - For the `GET` method under `/accounts/{account}`:
+     - Change the description of the first parameter from "The account ID to retrieve details for." back to "The account string."
+   - For the `GET` and `PUT` methods under `/statistics/{account}`:
+     - Change the description of the first parameter from "The account ID to retrieve statistics for." and "The account ID to update statistics for." back to "The account string."
+
+3. **Revert response schemas to empty objects:**
+   - For the `GET` method under `/accounts/{account}`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `GET` method under `/accounts/current`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `PUT` method under `/accounts/current`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `GET` method under `/accounts/demo`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `GET` method under `/statistics/{account}`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `PUT` method under `/statistics/{account}`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `GET` method under `/statistics/current`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `GET` method under `/statistics/demo`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `GET` method under `/notifications/settings/current`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+   - For the `PUT` method under `/notifications/settings/current`:
+     - Change the `200` response schema from a detailed object to an empty object `{}`.
+
+By following these steps, you will revert the `output_spec.json` to match the original specification.

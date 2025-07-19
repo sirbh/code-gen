@@ -1,0 +1,79 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['paths']['/quartz/mail/create']['post']['parameters'][0]['required']", "root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['properties']", "root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['required']", "root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['required']", "root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['required']", "root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['properties']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/quartz/mail/create']['post']['parameters'][0]['example']:
+  input_spec.json: */*
+  output_spec.json: application/json
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['message']:
+  input_spec.json: Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.
+  output_spec.json: Hello World
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['scheduledTime']:
+  input_spec.json: 2021-04-24T19:55:00.931Z
+  output_spec.json: 2023-10-10T10:00:00Z
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['subject']:
+  input_spec.json: The Bug [RED]
+  output_spec.json: Meeting Reminder
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['toEmail']:
+  input_spec.json: codevampire007@gmail.com
+  output_spec.json: example@example.com
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['username']:
+  input_spec.json: pranaybathini
+  output_spec.json: user123
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']['zoneId']:
+  input_spec.json: Asia/Kolkata
+  output_spec.json: UTC
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['example']:
+  input_spec.json: */*
+  output_spec.json: application/json
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['in']:
+  input_spec.json: query
+  output_spec.json: path
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['example']:
+  input_spec.json: 7
+  output_spec.json: 123
+root['paths']['/quartz/mail/list']['get']['parameters'][0]['example']:
+  input_spec.json: */*
+  output_spec.json: application/json
+root['paths']['/quartz/mail/list']['get']['parameters'][1]['example']:
+  input_spec.json: 0
+  output_spec.json: 1
+root['paths']['/quartz/mail/list']['get']['parameters'][2]['example']:
+  input_spec.json: 1000
+  output_spec.json: 10
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['example']:
+  input_spec.json: */*
+  output_spec.json: application/json
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['in']:
+  input_spec.json: query
+  output_spec.json: path
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['example']:
+  input_spec.json: 9
+  output_spec.json: 123
+root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['example']:
+  input_spec.json: */*
+  output_spec.json: application/json
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['scheduleId']:
+  input_spec.json: 21
+  output_spec.json: 123
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['message']:
+  input_spec.json: Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.
+  output_spec.json: Updated message
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['scheduledTime']:
+  input_spec.json: 2021-04-26T19:56:00.931Z
+  output_spec.json: 2023-10-10T10:00:00Z
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['subject']:
+  input_spec.json: The Bug [RED]
+  output_spec.json: Updated Subject
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['toEmail']:
+  input_spec.json: codevampire007@gmail.com
+  output_spec.json: example@example.com
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['username']:
+  input_spec.json: pranaybathini
+  output_spec.json: user123
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']['zoneId']:
+  input_spec.json: Asia/Kolkata
+  output_spec.json: UTC

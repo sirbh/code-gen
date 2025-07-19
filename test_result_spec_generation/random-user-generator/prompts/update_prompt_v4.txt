@@ -1,0 +1,27 @@
+To revert the changes in `output_spec.json` and align it with the original `input_spec.json`, follow these detailed instructions:
+
+1. **Update the Description for the First Tag:**
+   - **Current Description in `output_spec.json`:**
+     - "This is the overview of the Random User Generator API."
+   - **Required Description from `input_spec.json`:**
+     - "The Random User Generator API provides a free service to generate random user data for application testing. With random user data crafted for diverse use cases, you can test better with ready-made user data across your project.\n\n## Who is the Random User Generator API for\n\nThe audience for [https://randomuser.me/](https://randomuser.me/) is developers, data analysts, and researchers who need a quick and easy way to generate realistic mock user data for their applications or studies. This API generates random user profiles with diverse personal information, including name, gender, location, email address, and profile picture. It may also apply to UI/UX designers for placeholder data in designing user interfaces."
+   - **Action:** Replace the current description in `output_spec.json` with the detailed description from `input_spec.json`.
+
+2. **Correct the URL Formatting for the Third Tag:**
+   - **Current URL in `output_spec.json`:**
+     - "https://randomuser.me/"
+   - **Required URL from `input_spec.json`:**
+     - "```
+https://randomuser.me/
+```
+"
+   - **Action:** Update the URL in `output_spec.json` to include the triple backticks as shown in `input_spec.json`.
+
+3. **Verify the Description for the Fifth Tag:**
+   - **Current Description in `output_spec.json`:**
+     - "These are some of the current issues with the Random User API\n\n- The endpoint is just one - /api*\n- The reason we can’t precisely specify the exact location when calling the API is that the data of users are random. So you will always get a random location regardless of the one you specify.\n    (The only way around this is to specify nationality.)"
+   - **Required Description from `input_spec.json`:**
+     - The description is identical to the one in `output_spec.json`.
+   - **Action:** No changes are needed for this tag as the descriptions are already aligned.
+
+By following these steps, you will ensure that `output_spec.json` matches the original `input_spec.json` accurately.

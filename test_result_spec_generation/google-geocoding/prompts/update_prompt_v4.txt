@@ -1,0 +1,28 @@
+To revert the changes made in the `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Locate the Path**:
+   - Navigate to the `paths` section in the `output_spec.json` file.
+   - Find the specific endpoint: `/maps/api/geocode/json`.
+   - Within this endpoint, locate the `get` method.
+
+2. **Identify the Response**:
+   - Under the `get` method, go to the `responses` section.
+   - Look for the response with the status code `200`.
+
+3. **Access the Content Type**:
+   - Within the `200` response, find the `content` section.
+   - Identify the `application/json` content type.
+
+4. **Modify the Schema**:
+   - In the `application/json` section, locate the `schema`.
+   - Within the `schema`, find the `properties` attribute.
+
+5. **Remove the Added Properties**:
+   - The `properties` attribute was added in the new spec. To revert, you need to remove this entire `properties` section from the schema.
+   - Ensure that no remnants of the `properties` attribute remain in the `schema`.
+
+6. **Verify the Changes**:
+   - After removing the `properties`, double-check the structure to ensure it matches the original format.
+   - Ensure that the `schema` is correctly formatted and does not contain any additional or missing elements.
+
+By following these steps, the `output_spec.json` will be reverted to its original state, ensuring consistency with the initial specification.

@@ -1,0 +1,35 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Restore Removed Dictionary Items:**
+   - **Info Section:**
+     - Re-add the `title` and `version` fields under `root['info']`.
+   - **Paths Section:**
+     - Re-add the `operationId` for the following endpoints:
+       - `root['paths']['/api/v1/players']['get']['operationId']`
+       - `root['paths']['/api/v1/players/237']['get']['operationId']`
+       - `root['paths']['/api/v1/teams']['get']['operationId']`
+       - `root['paths']['/api/v1/teams/1']['get']['operationId']`
+       - `root['paths']['/api/v1/games']['get']['operationId']`
+       - `root['paths']['/api/v1/games/32881']['get']['operationId']`
+       - `root['paths']['/api/v1/stats']['get']['operationId']`
+     - Re-add the `example` field for the following parameters:
+       - `root['paths']['/api/v1/players']['get']['parameters'][0]['schema']['example']`
+       - `root['paths']['/api/v1/games']['get']['parameters'][0]['schema']['example']`
+       - `root['paths']['/api/v1/games']['get']['parameters'][1]['schema']['example']`
+       - `root['paths']['/api/v1/stats']['get']['parameters'][0]['schema']['example']`
+       - `root['paths']['/api/v1/stats']['get']['parameters'][1]['schema']['example']`
+     - Re-add the `summary` and `description` for the following endpoints:
+       - `root['paths']['/api/v1/players/9999']['get']['summary']`
+       - `root['paths']['/api/v1/players/9999']['get']['description']`
+       - `root['paths']['/api/v1/teams/9999']['get']['summary']`
+       - `root['paths']['/api/v1/teams/9999']['get']['description']`
+       - `root['paths']['/api/v1/games/99999']['get']['summary']`
+       - `root['paths']['/api/v1/games/99999']['get']['description']`
+
+2. **Revert Changed Values:**
+   - **Operation IDs:**
+     - Change `root['paths']['/api/v1/players/9999']['get']['operationId']` from `getPlayer9999` back to `specificPlayerInvalidId`.
+     - Change `root['paths']['/api/v1/teams/9999']['get']['operationId']` from `getTeam9999` back to `specificTeamInvalidId`.
+     - Change `root['paths']['/api/v1/games/99999']['get']['operationId']` from `getGame99999` back to `specificGameInvalidId`.
+
+By following these steps, you will successfully revert the `output_spec.json` to match the original specification.

@@ -1,0 +1,76 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['paths']['/accounts']", "root['paths']['/accounts/{account}']['get']['summary']", "root['paths']['/accounts/current']['get']['summary']", "root['paths']['/accounts/current']['put']['summary']", "root['paths']['/accounts/demo']['get']['summary']", "root['paths']['/statistics/{account}']['get']['summary']", "root['paths']['/statistics/{account}']['put']['summary']", "root['paths']['/statistics/current']['get']['summary']", "root['paths']['/statistics/demo']['get']['summary']", "root['paths']['/notifications/settings/current']['get']['summary']", "root['paths']['/notifications/settings/current']['put']['summary']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['servers']", "root['paths']['/accounts/']", "root['paths']['/accounts/{account}']['get']['description']", "root['paths']['/accounts/{account}']['get']['parameters'][0]['description']", "root['paths']['/accounts/{account}']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/accounts/current']['get']['description']", "root['paths']['/accounts/current']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/accounts/current']['put']['description']", "root['paths']['/accounts/current']['put']['responses']['200']['content']['application/json']['schema']", "root['paths']['/accounts/demo']['get']['description']", "root['paths']['/accounts/demo']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/{account}']['get']['description']", "root['paths']['/statistics/{account}']['get']['parameters'][0]['description']", "root['paths']['/statistics/{account}']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/{account}']['put']['description']", "root['paths']['/statistics/{account}']['put']['parameters'][0]['description']", "root['paths']['/statistics/{account}']['put']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/current']['get']['description']", "root['paths']['/statistics/current']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/statistics/demo']['get']['description']", "root['paths']['/statistics/demo']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/notifications/settings/current']['get']['description']", "root['paths']['/notifications/settings/current']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/notifications/settings/current']['put']['description']", "root['paths']['/notifications/settings/current']['put']['responses']['200']['content']['application/json']['schema']"])
+
+=== VALUES_CHANGED ===
+root['info']['title']:
+  input_spec.json: Piggy Metrics
+  output_spec.json: Piggy Metrics API
+root['info']['description']:
+  input_spec.json: OpenAPI Specification for Piggy Metrics, a simple financial advisor app built to demonstrate the Microservice Architecture Pattern using Spring Boot, Spring Cloud and Docker. This file was created by the PRAB (Public REST API Benchmark) developers.
+  output_spec.json: API for managing account data, statistics, and notification settings.
+root['paths']['/accounts/{account}']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of account data.
+root['paths']['/accounts/{account}']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/accounts/current']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of current account data.
+root['paths']['/accounts/current']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/accounts/current']['put']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful update of current account data.
+root['paths']['/accounts/current']['put']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/accounts/demo']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of demo account data.
+root['paths']['/accounts/demo']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/statistics/{account}']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of account statistics.
+root['paths']['/statistics/{account}']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/statistics/{account}']['put']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful creation or update of time series data.
+root['paths']['/statistics/{account}']['put']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/statistics/current']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of current account statistics.
+root['paths']['/statistics/current']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/statistics/demo']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of demo account statistics.
+root['paths']['/statistics/demo']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/notifications/settings/current']['get']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful retrieval of notification settings.
+root['paths']['/notifications/settings/current']['get']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.
+root['paths']['/notifications/settings/current']['put']['responses']['200']['description']:
+  input_spec.json: Valid request.
+  output_spec.json: Successful update of notification settings.
+root['paths']['/notifications/settings/current']['put']['responses']['default']['description']:
+  input_spec.json: Invalid request.
+  output_spec.json: Indicates an invalid request.

@@ -1,0 +1,51 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Restore Removed Dictionary Items:**
+   - **Path:** `/quartz/mail/update/{id}`
+   - **Method:** `POST`
+   - **Parameter Index:** `2`
+   - **Action:** Re-add the `required` attribute to the parameter at index 2.
+
+2. **Revert Changed Values:**
+   - **Path:** `/quartz/mail/create`
+   - **Method:** `POST`
+   - **Request Body Content Type:** `application/json`
+   - **Schema Example Message:** Change the example message back to:
+     ```html
+     Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.
+     ```
+   - **Path:** `/quartz/mail/update/{id}`
+   - **Method:** `POST`
+   - **Request Body Content Type:** `application/json`
+   - **Schema Example Message:** Change the example message back to:
+     ```html
+     Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.
+     ```
+
+3. **Restore Removed Iterable Items:**
+   - **Path:** `/quartz/mail/delete/{id}`
+   - **Method:** `DELETE`
+   - **Parameter Index:** `3`
+   - **Action:** Re-add the parameter with the following details:
+     ```json
+     {
+       "name": "id",
+       "in": "path",
+       "schema": {"type": "string"},
+       "required": true
+     }
+     ```
+   - **Path:** `/quartz/mail/list/{id}`
+   - **Method:** `GET`
+   - **Parameter Index:** `3`
+   - **Action:** Re-add the parameter with the following details:
+     ```json
+     {
+       "name": "id",
+       "in": "path",
+       "schema": {"type": "string"},
+       "required": true
+     }
+     ```
+
+By following these steps, you will successfully revert the changes in `output_spec.json` to match the original specification.

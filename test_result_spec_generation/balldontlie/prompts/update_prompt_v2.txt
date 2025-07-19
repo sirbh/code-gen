@@ -1,0 +1,65 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Dictionary Item Changes**
+
+- **Remove the Added Item:**
+  - **Path:** `root['info']['description']`
+  - **Action:** Delete this item from the `output_spec.json`.
+
+- **Restore the Removed Items:**
+  - **Path:** `root['tags']`
+  - **Action:** Re-add the `tags` section as it was in the original specification.
+  - **Path:** `root['info']['contact']`
+  - **Action:** Re-add the `contact` information as it was in the original specification.
+
+### 2. **Values Changes**
+
+- **OpenAPI Version:**
+  - **Path:** `root['openapi']`
+  - **Action:** Change the version from `3.0.0` back to `3.0.3`.
+
+- **Info Title:**
+  - **Path:** `root['info']['title']`
+  - **Action:** Change the title from `balldontlie API` back to `balldontlie`.
+
+### 3. **Paths Changes**
+
+- **Revert Path Details:**
+  - **Path:** `root['paths']`
+  - **Action:**
+    - **For `/api/v1/players`:**
+      - Change the `summary` from `Get All Players (Search)` back to `all players (search)`.
+      - Change the `description` from `Retrieves a list of all players, with an optional search query to filter results.` back to `all players (search)`.
+      - Modify the `parameters` to match the original format, including the `example` field.
+      - Adjust the `responses` description to be empty as in the original.
+    
+    - **For `/api/v1/players/{player_id}`:**
+      - Revert the path to `/api/v1/players/237` and `/api/v1/players/9999` as in the original.
+      - Adjust `summary`, `description`, and `responses` to match the original.
+
+    - **For `/api/v1/teams`:**
+      - Change the `summary` from `Get All Teams` back to `all teams`.
+      - Change the `description` from `Retrieves a list of all basketball teams.` back to `all teams`.
+      - Adjust the `responses` description to be empty as in the original.
+
+    - **For `/api/v1/teams/{team_id}`:**
+      - Revert the path to `/api/v1/teams/1` and `/api/v1/teams/9999` as in the original.
+      - Adjust `summary`, `description`, and `responses` to match the original.
+
+    - **For `/api/v1/games`:**
+      - Change the `summary` from `Get All Games (With Parameters)` back to `all games (example parameters)`.
+      - Change the `description` from `Retrieves a list of all games, with optional parameters to filter by season and team.` back to `all games (example parameters)`.
+      - Modify the `parameters` to match the original format, including the `example` field.
+      - Adjust the `responses` description to be empty as in the original.
+
+    - **For `/api/v1/games/{game_id}`:**
+      - Revert the path to `/api/v1/games/32881` and `/api/v1/games/99999` as in the original.
+      - Adjust `summary`, `description`, and `responses` to match the original.
+
+    - **For `/api/v1/stats`:**
+      - Change the `summary` from `Get All Stats (With Parameters)` back to `all stats (example parameters)`.
+      - Change the `description` from `Retrieves a list of all statistics, with optional parameters to filter by season and player.` back to `all stats (example parameters)`.
+      - Modify the `parameters` to match the original format, including the `example` field.
+      - Adjust the `responses` description to be empty as in the original.
+
+By following these steps, you will revert `output_spec.json` to match the original specification accurately.

@@ -1,0 +1,12 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['tags'][2]['description']:
+  input_spec.json: ```
+https://randomuser.me/
+
+```
+  output_spec.json: ```
+https://randomuser.me/
+```

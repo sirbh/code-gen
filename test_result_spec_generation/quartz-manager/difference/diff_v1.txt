@@ -1,0 +1,113 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['info']['description']", "root['paths']['/quartz/mail/create']['post']['requestBody']['required']", "root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['required']", "root['paths']['/quartz/mail/list']['get']['parameters'][0]['schema']['default']", "root['paths']['/quartz/mail/list']['get']['parameters'][1]['schema']['default']", "root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['required']", "root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['required']", "root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['required']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['paths']['/quartz/mail/create']['post']['parameters']", "root['paths']['/quartz/mail/create']['post']['responses']['200']['content']", "root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['example']", "root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['example']", "root['paths']['/quartz/mail/delete/{id}']['delete']['responses']['200']['content']", "root['paths']['/quartz/mail/list']['get']['parameters'][0]['example']", "root['paths']['/quartz/mail/list']['get']['parameters'][1]['example']", "root['paths']['/quartz/mail/list']['get']['parameters'][2]['example']", "root['paths']['/quartz/mail/list']['get']['responses']['200']['content']", "root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['example']", "root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['example']", "root['paths']['/quartz/mail/list/{id}']['get']['responses']['200']['content']", "root['paths']['/quartz/mail/update/{id}']['post']['description']", "root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['example']", "root['paths']['/quartz/mail/update/{id}']['post']['responses']['200']['content']"])
+
+=== VALUES_CHANGED ===
+root['info']['title']:
+  input_spec.json: Quartz-Scheduler
+  output_spec.json: Quartz-Scheduler API
+root['paths']['/quartz/mail/create']['post']['summary']:
+  input_spec.json: CREATE A MAIL SCHEDULE
+  output_spec.json: Create a Mail Schedule
+root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']:
+  input_spec.json: {'type': 'object', 'example': {'message': 'Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.', 'scheduledTime': '2021-04-24T19:55:00.931Z', 'subject': 'The Bug [RED]', 'toEmail': 'codevampire007@gmail.com', 'username': 'pranaybathini', 'zoneId': 'Asia/Kolkata'}}
+  output_spec.json: {'type': 'object', 'properties': {'message': {'type': 'string'}, 'scheduledTime': {'type': 'string', 'format': 'date-time'}, 'subject': {'type': 'string'}, 'toEmail': {'type': 'string', 'format': 'email'}, 'username': {'type': 'string'}, 'zoneId': {'type': 'string'}}, 'required': ['message', 'scheduledTime', 'subject', 'toEmail', 'username', 'zoneId']}
+root['paths']['/quartz/mail/create']['post']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with no content.
+root['paths']['/quartz/mail/delete/{id}']['delete']['summary']:
+  input_spec.json: DELETE A MAIL SCHEDULE
+  output_spec.json: Delete a Mail Schedule
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['name']:
+  input_spec.json: accept
+  output_spec.json: id
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['in']:
+  input_spec.json: header
+  output_spec.json: path
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['name']:
+  input_spec.json: id
+  output_spec.json: username
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['schema']['type']:
+  input_spec.json: integer
+  output_spec.json: string
+root['paths']['/quartz/mail/delete/{id}']['delete']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with no content.
+root['paths']['/quartz/mail/list']['get']['summary']:
+  input_spec.json: GET ALL MAIL SCHEDULES CREATED BY USER
+  output_spec.json: Get All Mail Schedules Created by User
+root['paths']['/quartz/mail/list']['get']['parameters'][0]['name']:
+  input_spec.json: accept
+  output_spec.json: page
+root['paths']['/quartz/mail/list']['get']['parameters'][0]['in']:
+  input_spec.json: header
+  output_spec.json: query
+root['paths']['/quartz/mail/list']['get']['parameters'][0]['schema']['type']:
+  input_spec.json: string
+  output_spec.json: integer
+root['paths']['/quartz/mail/list']['get']['parameters'][1]['name']:
+  input_spec.json: page
+  output_spec.json: size
+root['paths']['/quartz/mail/list']['get']['parameters'][2]['name']:
+  input_spec.json: size
+  output_spec.json: username
+root['paths']['/quartz/mail/list']['get']['parameters'][2]['schema']['type']:
+  input_spec.json: integer
+  output_spec.json: string
+root['paths']['/quartz/mail/list']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with no content.
+root['paths']['/quartz/mail/list/{id}']['get']['summary']:
+  input_spec.json: GET MAIL SCHEDULE BY ID
+  output_spec.json: Get Mail Schedule by ID
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['name']:
+  input_spec.json: accept
+  output_spec.json: id
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['in']:
+  input_spec.json: header
+  output_spec.json: path
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['name']:
+  input_spec.json: id
+  output_spec.json: username
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['schema']['type']:
+  input_spec.json: integer
+  output_spec.json: string
+root['paths']['/quartz/mail/list/{id}']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with no content.
+root['paths']['/quartz/mail/update/{id}']['post']['summary']:
+  input_spec.json: UPDATE MAIL SCHEDULE
+  output_spec.json: Update Mail Schedule
+root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['name']:
+  input_spec.json: accept
+  output_spec.json: id
+root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['in']:
+  input_spec.json: header
+  output_spec.json: path
+root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']:
+  input_spec.json: {'type': 'object', 'example': {'scheduleId': 21, 'message': 'Dear Friend, <br> <br> <font color=red><b><i>Most coders think debugging software is about fixing a mistake, but that’s bull****. Debugging’s actually all about finding the bug, about understanding why the bug was there to begin with, about knowing that its existence was no accident. It came to you to deliver a message, like an unconscious bubble floating to the surface, popping with a revelation you’ve secretly known all along </i></b></font> <br> <br> Cheers,<br>Pranay.', 'scheduledTime': '2021-04-26T19:56:00.931Z', 'subject': 'The Bug [RED]', 'toEmail': 'codevampire007@gmail.com', 'username': 'pranaybathini', 'zoneId': 'Asia/Kolkata'}}
+  output_spec.json: {'type': 'object', 'properties': {'scheduleId': {'type': 'integer'}, 'message': {'type': 'string'}, 'scheduledTime': {'type': 'string', 'format': 'date-time'}, 'subject': {'type': 'string'}, 'toEmail': {'type': 'string', 'format': 'email'}, 'username': {'type': 'string'}, 'zoneId': {'type': 'string'}}, 'required': ['scheduleId', 'message', 'scheduledTime', 'subject', 'toEmail', 'username', 'zoneId']}
+root['paths']['/quartz/mail/update/{id}']['post']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with no content.
+
+=== ITERABLE_ITEM_REMOVED ===
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][2]:
+  {'name': 'username', 'in': 'query', 'schema': {'type': 'string'}, 'example': 'pranaybathini'}
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][3]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}
+root['paths']['/quartz/mail/list']['get']['parameters'][3]:
+  {'name': 'username', 'in': 'query', 'schema': {'type': 'string'}, 'example': 'pranaybathini'}
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][2]:
+  {'name': 'username', 'in': 'query', 'schema': {'type': 'string'}, 'example': 'pranaybathini'}
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][3]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}
+root['paths']['/quartz/mail/update/{id}']['post']['parameters'][1]:
+  {'name': 'Content-Type', 'in': 'header', 'schema': {'type': 'string'}, 'example': 'application/json'}
+root['paths']['/quartz/mail/update/{id}']['post']['parameters'][2]:
+  {'name': 'id', 'in': 'path', 'schema': {'type': 'string'}, 'required': True}

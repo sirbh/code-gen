@@ -1,0 +1,27 @@
+To revert the changes in `output_spec.json` and ensure it matches the original specification, follow these detailed instructions:
+
+1. **Locate the File**:
+   - Open the `output_spec.json` file in your preferred text editor or JSON editor.
+
+2. **Navigate to the Specific Path**:
+   - Find the section of the JSON file that corresponds to the path `/breweries` under the `paths` object.
+   - Within this path, locate the `get` method.
+
+3. **Identify the Parameters**:
+   - Under the `get` method, there is a `parameters` array. You need to focus on the 5th and 6th elements of this array (index 4 and 5, respectively, since JSON arrays are zero-indexed).
+
+4. **Modify the Example Values**:
+   - **For the 5th Parameter (Index 4):**
+     - Locate the `example` key within this parameter object.
+     - Change the value of `example` from `1` to the original value, which is also `1`. This indicates no change is needed here.
+   - **For the 6th Parameter (Index 5):**
+     - Locate the `example` key within this parameter object.
+     - Change the value of `example` from `10` to the original value, which is also `10`. This indicates no change is needed here.
+
+5. **Save the File**:
+   - After making the necessary changes, save the `output_spec.json` file to ensure all modifications are applied.
+
+6. **Verify the Changes**:
+   - Double-check the `output_spec.json` to confirm that the `example` values for the specified parameters are correctly set to match the original specification.
+
+By following these steps, you will have successfully reverted the changes in `output_spec.json` to align with the original specification.

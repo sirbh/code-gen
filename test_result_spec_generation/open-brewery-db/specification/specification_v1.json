@@ -1,0 +1,282 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OpenBreweryDB API",
+    "version": "1.0.0",
+    "description": "The OpenBreweryDB API provides several endpoints to interact with a dataset of breweries, cideries, brewpubs, and bottleshops."
+  },
+  "servers": [
+    {
+      "url": "https://api.openbrewerydb.org/v1"
+    }
+  ],
+  "paths": {
+    "/breweries": {
+      "get": {
+        "summary": "List Breweries",
+        "description": "Retrieves a list of breweries based on various query parameters.",
+        "parameters": [
+          {
+            "name": "by_city",
+            "in": "query",
+            "description": "Filter breweries by city.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "by_dist",
+            "in": "query",
+            "description": "Filter breweries by distance from a given latitude and longitude.",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "by_name",
+            "in": "query",
+            "description": "Filter breweries by name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "by_postal",
+            "in": "query",
+            "description": "Filter breweries by postal code.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Specify the page number for pagination.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Specify the number of results per page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort results by a specified field and order.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of breweries in JSON format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Brewery"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/breweries/{id}": {
+      "get": {
+        "summary": "Get Brewery",
+        "description": "Retrieves details of a single brewery by its unique identifier.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (UUID) of the brewery.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with brewery details in JSON format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Brewery"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/breweries/search": {
+      "get": {
+        "summary": "Search Breweries",
+        "description": "Searches for breweries based on a search term.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "The search term to filter breweries.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with search results in JSON format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Brewery"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/breweries/autocomplete": {
+      "get": {
+        "summary": "Autocomplete",
+        "description": "Provides a list of brewery names and IDs based on a search term, typically used for dropdown selections.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "The search term for autocomplete suggestions.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with autocomplete suggestions in JSON format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AutocompleteSuggestion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/breweries/random": {
+      "get": {
+        "summary": "Random Brewery",
+        "description": "Retrieves a random brewery from the dataset.",
+        "responses": {
+          "200": {
+            "description": "Successful response with random brewery details in JSON format.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Brewery"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Brewery": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the brewery."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the brewery."
+          },
+          "brewery_type": {
+            "type": "string",
+            "description": "Type of the brewery (e.g., micro, nano, regional)."
+          },
+          "street": {
+            "type": "string",
+            "description": "Street address of the brewery."
+          },
+          "city": {
+            "type": "string",
+            "description": "City where the brewery is located."
+          },
+          "state": {
+            "type": "string",
+            "description": "State where the brewery is located."
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "Postal code of the brewery's location."
+          },
+          "country": {
+            "type": "string",
+            "description": "Country where the brewery is located."
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude coordinate of the brewery."
+          },
+          "latitude": {
+            "type": "number",
+            "description": "Latitude coordinate of the brewery."
+          },
+          "phone": {
+            "type": "string",
+            "description": "Contact phone number for the brewery."
+          },
+          "website_url": {
+            "type": "string",
+            "description": "Website URL of the brewery."
+          }
+        }
+      },
+      "AutocompleteSuggestion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the brewery."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the brewery."
+          }
+        }
+      }
+    }
+  }
+}

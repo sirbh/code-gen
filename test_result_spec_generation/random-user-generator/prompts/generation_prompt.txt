@@ -1,0 +1,44 @@
+The Random User Generator API provides a single endpoint to generate random user data, which can be used for application testing and other purposes. Below is a detailed description of the API endpoint:
+
+### Endpoint Path and HTTP Method
+- **Path**: `/api`
+- **HTTP Method**: `GET`
+
+### Functionality
+- This endpoint retrieves random user data, including personal information such as name, gender, location, email, and profile picture.
+
+### Parameters
+- **Header Parameter**:
+  - `Accept`: Specifies the media type of the response. Example value: `application/json`.
+
+### Request Body
+- No request body is required for this endpoint.
+
+### Response
+- **Status Codes**:
+  - `200 OK`: The request was successful, and random user data is returned.
+  - `400 Bad Request`: The request was invalid or missing a required parameter.
+  - `404 Not Found`: The requested resource was not found.
+  - `500 Internal Server Error`: An error occurred on the server.
+
+- **Response Headers**:
+  - `Content-Type`: Indicates the media type of the response, typically `application/json; charset=utf-8`.
+  - Other headers include `Date`, `Transfer-Encoding`, `Connection`, `X-Powered-By`, `Access-Control-Allow-Origin`, `Cache-Control`, `ETag`, `Vary`, `CF-Cache-Status`, `Report-To`, `NEL`, `Server`, `CF-RAY`, `Content-Encoding`, and `alt-svc`.
+
+- **Response Body**:
+  - The response body is in JSON format and contains two main objects:
+    - `results`: An array of user objects, each containing fields such as:
+      - `gender`: User's gender (e.g., "female").
+      - `name`: An object with `title`, `first`, and `last` name fields.
+      - `location`: An object with details like `street`, `city`, `state`, `country`, `postcode`, `coordinates`, and `timezone`.
+      - `email`: User's email address.
+      - `login`: An object with authentication details like `uuid`, `username`, `password`, `salt`, `md5`, `sha1`, and `sha256`.
+      - `dob`: An object with `date` and `age` fields representing the date of birth.
+      - `registered`: An object with `date` and `age` fields representing registration details.
+      - `phone` and `cell`: User's phone numbers.
+      - `id`: An object with `name` and `value` fields.
+      - `picture`: An object with URLs for `large`, `medium`, and `thumbnail` profile pictures.
+      - `nat`: User's nationality.
+    - `info`: An object containing metadata about the response, such as `seed`, `results`, `page`, and `version`.
+
+This API does not require authentication, making it easily accessible for developers, data analysts, and researchers who need mock user data for testing and development purposes.

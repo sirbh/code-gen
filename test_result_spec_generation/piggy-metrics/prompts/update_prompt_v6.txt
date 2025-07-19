@@ -1,0 +1,34 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Remove Added Items:**
+   - **Summary:**
+     - Locate the `summary` field under `root['paths']['/accounts/']['post']`.
+     - Delete the entire `summary` entry.
+   - **Request Body:**
+     - Locate the `requestBody` field under `root['paths']['/accounts/']['post']`.
+     - Delete the entire `requestBody` entry.
+
+2. **Revert Changed Values:**
+   - **Description:**
+     - Navigate to `root['paths']['/accounts/']['post']['description']`.
+     - Change the value from `"This endpoint allows the creation of a new account."` back to `"Register new account."`.
+   - **Responses:**
+     - Navigate to `root['paths']['/accounts/']['post']['responses']`.
+     - Replace the entire response object with the original:
+       ```json
+       {
+         "200": {
+           "description": "Valid request.",
+           "content": {
+             "application/json": {
+               "schema": {}
+             }
+           }
+         },
+         "default": {
+           "description": "Invalid request."
+         }
+       }
+       ```
+
+By following these steps, `output_spec.json` will be reverted to match the original specification as described in `input_spec.json`. Ensure each change is made precisely to maintain the integrity of the original API specification.

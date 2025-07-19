@@ -1,0 +1,63 @@
+The API specification describes a set of endpoints hosted on `http://localhost:8080`. Below is a detailed description of each endpoint, including their paths, HTTP methods, parameters, request bodies, response status codes, and response data structures:
+
+### Endpoint: `/z`
+- **GET Method**
+  - **Purpose**: Retrieve an integer value.
+  - **Response**:
+    - **Status Code 200**: Returns an integer in `int32` format.
+
+- **PUT Method**
+  - **Purpose**: Update or set an integer value.
+  - **Request Body**:
+    - **Content Type**: `application/json`
+    - **Schema**: Integer in `int32` format.
+  - **Response**:
+    - **Status Code 200**: Indicates successful update.
+
+### Endpoint: `/k`
+- **GET Method**
+  - **Purpose**: Retrieve a `FooDto` object.
+  - **Response**:
+    - **Status Code 200**: Returns a JSON object conforming to the `FooDto` schema.
+
+- **PUT Method**
+  - **Purpose**: Update or set a `FooDto` object.
+  - **Request Body**:
+    - **Content Type**: `application/json`
+    - **Schema**: `FooDto` object.
+  - **Response**:
+    - **Status Code 200**: Indicates successful update.
+
+### Endpoint: `/y`
+- **GET Method**
+  - **Purpose**: Retrieve a `FooDto` object.
+  - **Response**:
+    - **Status Code 200**: Returns a JSON object conforming to the `FooDto` schema.
+
+- **POST Method**
+  - **Purpose**: Create a new `FooDto` object.
+  - **Request Body**:
+    - **Content Type**: `application/json`
+    - **Schema**: `FooDto` object.
+  - **Response**:
+    - **Status Code 201**: Returns a string indicating successful creation.
+
+- **DELETE Method**
+  - **Purpose**: Delete a `FooDto` object.
+  - **Response**:
+    - **Status Code 200**: Indicates successful deletion.
+
+### Endpoint: `/x`
+- **GET Method**
+  - **Purpose**: Retrieve a string value.
+  - **Response**:
+    - **Status Code 200**: Returns a string.
+
+### `FooDto` Schema
+- **Type**: Object
+- **Properties**:
+  - **`i`**: Integer (`int32`), maximum value of 100.
+  - **`b`**: Boolean (required).
+  - **`s`**: String, with possible values "FOO" or "BAR".
+
+This instruction provides a comprehensive overview of the API endpoints, their functionalities, and the data structures involved, enabling the regeneration of an equivalent OpenAPI specification.

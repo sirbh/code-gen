@@ -1,0 +1,78 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Descriptions**
+- **Paths to Remove Descriptions From:**
+  - `/breweries` GET
+  - `/breweries/search` GET
+  - `/breweries/autocomplete` GET
+  - `/breweries/random` GET
+- **Action:** Delete the `description` field from each of these paths.
+
+### 2. **Revert Changed Values**
+- **Info Description:**
+  - **Current:** "The OpenBreweryDB provides a comprehensive dataset of breweries, cideries, brewpubs, and bottleshops."
+  - **Revert to:**
+    ```
+    ![Open Brewery DB Logo](https://github.com/cipherwizard9/openbrewerydb/raw/master/obdb-logo-md.jpg)
+    
+    This is the postman collection for [Open Brewery DB API](https://www.openbrewerydb.org/) which is served by a [REST API built with Ruby on Rails](https://github.com/chrisjm/openbrewerydb-rails-api)
+    
+    ## About Open Brewery DB
+    Open Brewery DB is a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops. The goal of Open Brewery DB is to maintain an open-source, community-driven dataset and provide a public API. It is our belief that public information should be freely accessible for the betterment of the beer community and the happiness of web developers and data analysts.
+    ```
+
+- **Tags Name and Description:**
+  - **Current Name:** "Breweries"
+  - **Revert Name to:** "List Breweries"
+  - **Current Description:** "Operations related to breweries"
+  - **Revert Description to:** "Returns a list of breweries.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+
+- **Paths Tags:**
+  - **`/breweries` GET Tag:** Revert from "Breweries" to "List Breweries"
+  - **`/breweries/{id}` GET Tag:** Revert from "Breweries" to "Get Brewery"
+  - **`/breweries/search` GET Tag:** Revert from "Breweries" to "Search Breweries"
+  - **`/breweries/autocomplete` GET Tag:** Revert from "Breweries" to "Autocomplete"
+  - **`/breweries/random` GET Tag:** Revert from "Breweries" to "Random Brewery"
+
+- **Parameters Examples:**
+  - **`/breweries` GET Parameters:**
+    - Example 0: Revert from "San Diego" to "san diego"
+    - Example 1: Revert from "10" to "-117.129593,32.714813"
+    - Example 2: Revert from "Modern Times" to "10 Barrel Brewing Co"
+    - Example 3: Revert from "92101" to "92101-6618"
+    - Example 5: Revert from "20" to "10"
+    - Example 6: Revert from "name" to "name:desc"
+  - **`/breweries/search` GET Parameter Example:** Revert from "IPA" to "dog"
+  - **`/breweries/autocomplete` GET Parameter Example:** Revert from "Lagunitas" to "dog"
+
+### 3. **Re-add Removed Tags**
+- **Tags to Re-add:**
+  - **Get Brewery:**
+    ```json
+    {
+      "name": "Get Brewery",
+      "description": "Get a single brewery.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+    }
+    ```
+  - **Search Breweries:**
+    ```json
+    {
+      "name": "Search Breweries",
+      "description": "Search for breweries based on a search term\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+    }
+    ```
+  - **Autocomplete:**
+    ```json
+    {
+      "name": "Autocomplete",
+      "description": "Return a list of names and ids of breweries based on a search term. This endpoint is typically used for a drop-down selection.\n\n**Note:** For the parameters, you can use underscores or url encoding for spaces."
+    }
+    ```
+  - **Random Brewery:**
+    ```json
+    {
+      "name": "Random Brewery"
+    }
+    ```
+
+By following these steps, you will successfully revert `output_spec.json` to match the original specification.

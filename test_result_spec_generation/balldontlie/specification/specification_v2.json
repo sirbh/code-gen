@@ -1,0 +1,212 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "balldontlie",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://balldontlie.io"
+    }
+  ],
+  "tags": [
+    {
+      "name": "players",
+      "description": "Operations about players"
+    },
+    {
+      "name": "teams",
+      "description": "Operations about teams"
+    },
+    {
+      "name": "games",
+      "description": "Operations about games"
+    },
+    {
+      "name": "stats",
+      "description": "Operations about statistics"
+    }
+  ],
+  "info": {
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.balldontlie.io/support",
+      "email": "support@balldontlie.io"
+    }
+  },
+  "paths": {
+    "/api/v1/players": {
+      "get": {
+        "tags": ["players"],
+        "summary": "all players (search)",
+        "description": "all players (search)",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term to filter players by name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "LeBron"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/players/237": {
+      "get": {
+        "tags": ["players"],
+        "summary": "Get Specific Player",
+        "description": "Retrieves information about a specific player by their ID.",
+        "parameters": [
+          {
+            "name": "player_id",
+            "in": "path",
+            "description": "The ID of the player.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/teams": {
+      "get": {
+        "tags": ["teams"],
+        "summary": "all teams",
+        "description": "all teams",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/teams/1": {
+      "get": {
+        "tags": ["teams"],
+        "summary": "Get Specific Team",
+        "description": "Retrieves information about a specific team by their ID.",
+        "parameters": [
+          {
+            "name": "team_id",
+            "in": "path",
+            "description": "The ID of the team.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/games": {
+      "get": {
+        "tags": ["games"],
+        "summary": "all games (example parameters)",
+        "description": "all games (example parameters)",
+        "parameters": [
+          {
+            "name": "seasons[]",
+            "in": "query",
+            "description": "Filter games by season.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2018"
+          },
+          {
+            "name": "team_ids[]",
+            "in": "query",
+            "description": "Filter games by team ID.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "14"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/games/32881": {
+      "get": {
+        "tags": ["games"],
+        "summary": "Get Specific Game",
+        "description": "Retrieves information about a specific game by its ID.",
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "description": "The ID of the game.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/stats": {
+      "get": {
+        "tags": ["stats"],
+        "summary": "all stats (example parameters)",
+        "description": "all stats (example parameters)",
+        "parameters": [
+          {
+            "name": "season[]",
+            "in": "query",
+            "description": "Filter stats by season.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2018"
+          },
+          {
+            "name": "player_ids[]",
+            "in": "query",
+            "description": "Filter stats by player ID.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "237"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

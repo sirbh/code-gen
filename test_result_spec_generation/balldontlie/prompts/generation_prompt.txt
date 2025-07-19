@@ -1,0 +1,74 @@
+The API specification provided is for a service called "balldontlie" which offers endpoints to retrieve information about basketball players, teams, games, and statistics. Below is a detailed description of each endpoint:
+
+### Players Endpoints
+1. **Get All Players (Search)**
+   - **Path:** `/api/v1/players`
+   - **Method:** GET
+   - **Description:** Retrieves a list of all players, with an optional search query to filter results.
+   - **Query Parameters:**
+     - `search` (string): A search term to filter players by name. Example: `lebron`.
+   - **Response:**
+     - **Status Code 200:** Returns a list of players matching the search criteria.
+
+2. **Get Specific Player**
+   - **Path:** `/api/v1/players/{player_id}`
+   - **Method:** GET
+   - **Description:** Retrieves information about a specific player by their ID.
+   - **Path Parameters:**
+     - `player_id` (integer): The ID of the player. Example: `237` for a valid player.
+   - **Response:**
+     - **Status Code 200:** Returns details of the specified player.
+
+### Teams Endpoints
+3. **Get All Teams**
+   - **Path:** `/api/v1/teams`
+   - **Method:** GET
+   - **Description:** Retrieves a list of all basketball teams.
+   - **Response:**
+     - **Status Code 200:** Returns a list of all teams.
+
+4. **Get Specific Team**
+   - **Path:** `/api/v1/teams/{team_id}`
+   - **Method:** GET
+   - **Description:** Retrieves information about a specific team by their ID.
+   - **Path Parameters:**
+     - `team_id` (integer): The ID of the team. Example: `1` for a valid team.
+   - **Response:**
+     - **Status Code 200:** Returns details of the specified team.
+
+### Games Endpoints
+5. **Get All Games (With Parameters)**
+   - **Path:** `/api/v1/games`
+   - **Method:** GET
+   - **Description:** Retrieves a list of all games, with optional parameters to filter by season and team.
+   - **Query Parameters:**
+     - `seasons[]` (string): Filter games by season. Example: `2018`.
+     - `team_ids[]` (string): Filter games by team ID. Example: `1`.
+   - **Response:**
+     - **Status Code 200:** Returns a list of games matching the filter criteria.
+
+6. **Get Specific Game**
+   - **Path:** `/api/v1/games/{game_id}`
+   - **Method:** GET
+   - **Description:** Retrieves information about a specific game by its ID.
+   - **Path Parameters:**
+     - `game_id` (integer): The ID of the game. Example: `32881` for a valid game.
+   - **Response:**
+     - **Status Code 200:** Returns details of the specified game.
+
+### Stats Endpoints
+7. **Get All Stats (With Parameters)**
+   - **Path:** `/api/v1/stats`
+   - **Method:** GET
+   - **Description:** Retrieves a list of all statistics, with optional parameters to filter by season and player.
+   - **Query Parameters:**
+     - `season[]` (string): Filter stats by season. Example: `2018`.
+     - `player_ids[]` (string): Filter stats by player ID. Example: `237`.
+   - **Response:**
+     - **Status Code 200:** Returns a list of statistics matching the filter criteria.
+
+### Notes
+- All endpoints return a `200` status code for successful requests, but the response body details are not specified in the provided spec.
+- The API base URL is `https://balldontlie.io`.
+- The API version is `1.0.0`.
+- Tags are used to categorize endpoints: `players`, `teams`, `games`, and `stats`.

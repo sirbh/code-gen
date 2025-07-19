@@ -1,0 +1,10 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['paths']['/breweries']['get']['parameters'][4]['example']:
+  input_spec.json: 1
+  output_spec.json: 1
+root['paths']['/breweries']['get']['parameters'][5]['example']:
+  input_spec.json: 10
+  output_spec.json: 10

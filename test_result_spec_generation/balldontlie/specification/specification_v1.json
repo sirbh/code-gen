@@ -1,0 +1,183 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "balldontlie API",
+    "version": "1.0.0",
+    "description": "API for retrieving information about basketball players, teams, games, and statistics."
+  },
+  "servers": [
+    {
+      "url": "https://balldontlie.io"
+    }
+  ],
+  "paths": {
+    "/api/v1/players": {
+      "get": {
+        "tags": ["players"],
+        "summary": "Get All Players (Search)",
+        "description": "Retrieves a list of all players, with an optional search query to filter results.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "A search term to filter players by name.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of players matching the search criteria."
+          }
+        }
+      }
+    },
+    "/api/v1/players/{player_id}": {
+      "get": {
+        "tags": ["players"],
+        "summary": "Get Specific Player",
+        "description": "Retrieves information about a specific player by their ID.",
+        "parameters": [
+          {
+            "name": "player_id",
+            "in": "path",
+            "description": "The ID of the player.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns details of the specified player."
+          }
+        }
+      }
+    },
+    "/api/v1/teams": {
+      "get": {
+        "tags": ["teams"],
+        "summary": "Get All Teams",
+        "description": "Retrieves a list of all basketball teams.",
+        "responses": {
+          "200": {
+            "description": "Returns a list of all teams."
+          }
+        }
+      }
+    },
+    "/api/v1/teams/{team_id}": {
+      "get": {
+        "tags": ["teams"],
+        "summary": "Get Specific Team",
+        "description": "Retrieves information about a specific team by their ID.",
+        "parameters": [
+          {
+            "name": "team_id",
+            "in": "path",
+            "description": "The ID of the team.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns details of the specified team."
+          }
+        }
+      }
+    },
+    "/api/v1/games": {
+      "get": {
+        "tags": ["games"],
+        "summary": "Get All Games (With Parameters)",
+        "description": "Retrieves a list of all games, with optional parameters to filter by season and team.",
+        "parameters": [
+          {
+            "name": "seasons[]",
+            "in": "query",
+            "description": "Filter games by season.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "team_ids[]",
+            "in": "query",
+            "description": "Filter games by team ID.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of games matching the filter criteria."
+          }
+        }
+      }
+    },
+    "/api/v1/games/{game_id}": {
+      "get": {
+        "tags": ["games"],
+        "summary": "Get Specific Game",
+        "description": "Retrieves information about a specific game by its ID.",
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "description": "The ID of the game.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns details of the specified game."
+          }
+        }
+      }
+    },
+    "/api/v1/stats": {
+      "get": {
+        "tags": ["stats"],
+        "summary": "Get All Stats (With Parameters)",
+        "description": "Retrieves a list of all statistics, with optional parameters to filter by season and player.",
+        "parameters": [
+          {
+            "name": "season[]",
+            "in": "query",
+            "description": "Filter stats by season.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "player_ids[]",
+            "in": "query",
+            "description": "Filter stats by player ID.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of statistics matching the filter criteria."
+          }
+        }
+      }
+    }
+  }
+}

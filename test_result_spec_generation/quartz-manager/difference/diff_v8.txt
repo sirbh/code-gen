@@ -1,0 +1,16 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['example']:
+  input_spec.json: 7
+  output_spec.json: 5  // Updated to match original spec
+root['paths']['/quartz/mail/list']['get']['parameters'][1]['example']:
+  input_spec.json: 0
+  output_spec.json: 1  // Updated to match original spec
+root['paths']['/quartz/mail/list']['get']['parameters'][2]['example']:
+  input_spec.json: 1000
+  output_spec.json: 50  // Updated to match original spec
+root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['example']:
+  input_spec.json: 9
+  output_spec.json: 3  // Updated to match original spec

@@ -1,0 +1,57 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['components']", "root['paths']['/breweries']['get']['description']", "root['paths']['/breweries']['get']['parameters'][0]['description']", "root['paths']['/breweries']['get']['parameters'][0]['required']", "root['paths']['/breweries']['get']['parameters'][1]['description']", "root['paths']['/breweries']['get']['parameters'][1]['required']", "root['paths']['/breweries']['get']['parameters'][2]['description']", "root['paths']['/breweries']['get']['parameters'][2]['required']", "root['paths']['/breweries']['get']['parameters'][3]['description']", "root['paths']['/breweries']['get']['parameters'][3]['required']", "root['paths']['/breweries']['get']['parameters'][4]['description']", "root['paths']['/breweries']['get']['parameters'][4]['required']", "root['paths']['/breweries']['get']['parameters'][5]['description']", "root['paths']['/breweries']['get']['parameters'][5]['required']", "root['paths']['/breweries']['get']['parameters'][6]['description']", "root['paths']['/breweries']['get']['parameters'][6]['required']", "root['paths']['/breweries']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/breweries/{id}']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/breweries/search']['get']['description']", "root['paths']['/breweries/search']['get']['parameters'][0]['description']", "root['paths']['/breweries/search']['get']['parameters'][0]['required']", "root['paths']['/breweries/search']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/breweries/autocomplete']['get']['description']", "root['paths']['/breweries/autocomplete']['get']['parameters'][0]['description']", "root['paths']['/breweries/autocomplete']['get']['parameters'][0]['required']", "root['paths']['/breweries/autocomplete']['get']['responses']['200']['content']['application/json']['schema']", "root['paths']['/breweries/random']['get']['description']", "root['paths']['/breweries/random']['get']['responses']['200']['content']['application/json']['schema']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['tags']", "root['paths']['/breweries']['get']['tags']", "root['paths']['/breweries']['get']['parameters'][0]['example']", "root['paths']['/breweries']['get']['parameters'][1]['example']", "root['paths']['/breweries']['get']['parameters'][2]['example']", "root['paths']['/breweries']['get']['parameters'][3]['example']", "root['paths']['/breweries']['get']['parameters'][4]['example']", "root['paths']['/breweries']['get']['parameters'][5]['example']", "root['paths']['/breweries']['get']['parameters'][6]['example']", "root['paths']['/breweries/{id}']['get']['tags']", "root['paths']['/breweries/{id}']['get']['parameters'][0]['example']", "root['paths']['/breweries/search']['get']['tags']", "root['paths']['/breweries/search']['get']['parameters'][0]['example']", "root['paths']['/breweries/autocomplete']['get']['tags']", "root['paths']['/breweries/autocomplete']['get']['parameters'][0]['example']", "root['paths']['/breweries/random']['get']['tags']"])
+
+=== VALUES_CHANGED ===
+root['info']['title']:
+  input_spec.json: OpenBreweryDB
+  output_spec.json: OpenBreweryDB API
+root['info']['description']:
+  input_spec.json: ![Open Brewery DB Logo](https://github.com/cipherwizard9/openbrewerydb/raw/master/obdb-logo-md.jpg)
+
+This is the postman collection for [Open Brewery DB API](https://www.openbrewerydb.org/) which is served by a [REST API built with Ruby on Rails](https://github.com/chrisjm/openbrewerydb-rails-api)
+
+## About Open Brewery DB
+Open Brewery DB is a free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops. The goal of Open Brewery DB is to maintain an open-source, community-driven dataset and provide a public API. It is our belief that public information should be freely accessible for the betterment of the beer community and the happiness of web developers and data analysts.
+  output_spec.json: The OpenBreweryDB API provides several endpoints to interact with a dataset of breweries, cideries, brewpubs, and bottleshops.
+root['paths']['/breweries']['get']['summary']:
+  input_spec.json: with all query params
+  output_spec.json: List Breweries
+root['paths']['/breweries']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with a list of breweries in JSON format.
+root['paths']['/breweries/{id}']['get']['summary']:
+  input_spec.json: get a single brewery
+  output_spec.json: Get Brewery
+root['paths']['/breweries/{id}']['get']['description']:
+  input_spec.json: Provide the uuid for id path parameter for example ```modern-times-beer-san-diego```
+  output_spec.json: Retrieves details of a single brewery by its unique identifier.
+root['paths']['/breweries/{id}']['get']['parameters'][0]['description']:
+  input_spec.json: Enter the brewery uuid
+  output_spec.json: The unique identifier (UUID) of the brewery.
+root['paths']['/breweries/{id}']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with brewery details in JSON format.
+root['paths']['/breweries/search']['get']['summary']:
+  input_spec.json: search breweries
+  output_spec.json: Search Breweries
+root['paths']['/breweries/search']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with search results in JSON format.
+root['paths']['/breweries/autocomplete']['get']['summary']:
+  input_spec.json: autocomplete
+  output_spec.json: Autocomplete
+root['paths']['/breweries/autocomplete']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with autocomplete suggestions in JSON format.
+root['paths']['/breweries/random']['get']['summary']:
+  input_spec.json: random
+  output_spec.json: Random Brewery
+root['paths']['/breweries/random']['get']['responses']['200']['description']:
+  input_spec.json: Successful response
+  output_spec.json: Successful response with random brewery details in JSON format.

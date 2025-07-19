@@ -1,0 +1,31 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['tags'][0]['description']", "root['tags'][1]['description']", "root['tags'][2]['description']", "root['tags'][3]['description']", "root['paths']['/api/v1/players']['get']['parameters'][0]['description']", "root['paths']['/api/v1/players']['get']['parameters'][0]['required']", "root['paths']['/api/v1/players']['get']['parameters'][0]['example']", "root['paths']['/api/v1/players/237']['get']['parameters']", "root['paths']['/api/v1/teams/1']['get']['parameters']", "root['paths']['/api/v1/games']['get']['parameters'][0]['description']", "root['paths']['/api/v1/games']['get']['parameters'][0]['required']", "root['paths']['/api/v1/games']['get']['parameters'][0]['example']", "root['paths']['/api/v1/games']['get']['parameters'][1]['description']", "root['paths']['/api/v1/games']['get']['parameters'][1]['required']", "root['paths']['/api/v1/games']['get']['parameters'][1]['example']", "root['paths']['/api/v1/games/32881']['get']['parameters']", "root['paths']['/api/v1/stats']['get']['parameters'][0]['description']", "root['paths']['/api/v1/stats']['get']['parameters'][0]['required']", "root['paths']['/api/v1/stats']['get']['parameters'][0]['example']", "root['paths']['/api/v1/stats']['get']['parameters'][1]['description']", "root['paths']['/api/v1/stats']['get']['parameters'][1]['required']", "root['paths']['/api/v1/stats']['get']['parameters'][1]['example']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['info']['title']", "root['info']['version']", "root['paths']['/api/v1/players/9999']", "root['paths']['/api/v1/teams/9999']", "root['paths']['/api/v1/games/99999']", "root['paths']['/api/v1/players']['get']['operationId']", "root['paths']['/api/v1/players']['get']['parameters'][0]['schema']['example']", "root['paths']['/api/v1/players/237']['get']['operationId']", "root['paths']['/api/v1/teams']['get']['operationId']", "root['paths']['/api/v1/teams/1']['get']['operationId']", "root['paths']['/api/v1/games']['get']['operationId']", "root['paths']['/api/v1/games']['get']['parameters'][0]['schema']['example']", "root['paths']['/api/v1/games']['get']['parameters'][1]['schema']['example']", "root['paths']['/api/v1/games/32881']['get']['operationId']", "root['paths']['/api/v1/stats']['get']['operationId']", "root['paths']['/api/v1/stats']['get']['parameters'][0]['schema']['example']", "root['paths']['/api/v1/stats']['get']['parameters'][1]['schema']['example']"])
+
+=== VALUES_CHANGED ===
+root['info']['contact']:
+  input_spec.json: {}
+  output_spec.json: {'name': 'API Support', 'url': 'http://www.balldontlie.io/support', 'email': 'support@balldontlie.io'}
+root['paths']['/api/v1/players/237']['get']['summary']:
+  input_spec.json: specific player
+  output_spec.json: Get Specific Player
+root['paths']['/api/v1/players/237']['get']['description']:
+  input_spec.json: specific player
+  output_spec.json: Retrieves information about a specific player by their ID.
+root['paths']['/api/v1/teams/1']['get']['summary']:
+  input_spec.json: specific team
+  output_spec.json: Get Specific Team
+root['paths']['/api/v1/teams/1']['get']['description']:
+  input_spec.json: specific team
+  output_spec.json: Retrieves information about a specific team by their ID.
+root['paths']['/api/v1/games/32881']['get']['summary']:
+  input_spec.json: specific game
+  output_spec.json: Get Specific Game
+root['paths']['/api/v1/games/32881']['get']['description']:
+  input_spec.json: specific game
+  output_spec.json: Retrieves information about a specific game by its ID.

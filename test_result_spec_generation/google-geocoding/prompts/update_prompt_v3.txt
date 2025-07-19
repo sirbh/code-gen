@@ -1,0 +1,64 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Revert Type Changes**
+- **Location**: `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['content']['application/json']['example']`
+- **Action**: Replace the current example in `output_spec.json` with the following JSON structure:
+  ```json
+  {
+    "results": [
+      {
+        "address_components": [
+          {"long_name": "High Street", "short_name": "High St", "types": ["route"]},
+          {"long_name": "Hastings", "short_name": "Hastings", "types": ["postal_town"]},
+          {"long_name": "East Sussex", "short_name": "East Sussex", "types": ["administrative_area_level_2", "political"]},
+          {"long_name": "England", "short_name": "England", "types": ["administrative_area_level_1", "political"]},
+          {"long_name": "United Kingdom", "short_name": "GB", "types": ["country", "political"]},
+          {"long_name": "TN34", "short_name": "TN34", "types": ["postal_code", "postal_code_prefix"]}
+        ],
+        "formatted_address": "High St, Hastings TN34, UK",
+        "geometry": {
+          "bounds": {
+            "northeast": {"lat": 50.86038139999999, "lng": 0.596206},
+            "southwest": {"lat": 50.8558471, "lng": 0.5904904}
+          },
+          "location": {"lat": 50.8584228, "lng": 0.5926006},
+          "location_type": "GEOMETRIC_CENTER",
+          "viewport": {
+            "northeast": {"lat": 50.86038139999999, "lng": 0.596206},
+            "southwest": {"lat": 50.8558471, "lng": 0.5904904}
+          }
+        },
+        "place_id": "ChIJ-Ws929sa30cRKgsMNVkPyws",
+        "types": ["route"]
+      }
+    ],
+    "status": "OK"
+  }
+  ```
+
+### 2. **Restore Removed Dictionary Items**
+- **Location**: `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['headers']['Content-Type']['schema']['example']`
+- **Action**: Re-add the `example` field under the `Content-Type` header schema with its original value.
+
+- **Location**: `root['paths']['/maps/api/geocode/json']['get']['responses']['200']['content']['application/json']['schema']`
+- **Action**: Re-add the `schema` field under `application/json` content with its original structure.
+
+### 3. **Revert Value Changes**
+- **Location**: `root['paths']['/maps/api/geocode/json']['get']['description']`
+- **Action**: Replace the current description in `output_spec.json` with the following detailed description:
+  ```
+  The Geocoding API is a service that provides geocoding and reverse geocoding of addresses.
+
+  **Geocoding** is the process of converting addresses (like a street address) into geographic coordinates (like latitude and longitude), which you can use to place markers on a map, or position the map.
+
+  **Reverse geocoding** is the process of converting geographic coordinates into a human-readable address.
+
+  You can also use the Geocoding API to find the address for a given place ID.
+
+  To see countries currently supported by the Google Maps Platform Geocoding API, please consult the [Google Maps coverage data](https://developers.google.com/maps/coverage). The accuracy of geocoded locations may vary per country, so you should consider using the returned `location_type` field to determine if a good enough match has been found for the purposes of your application. Please note that the availability of geocoding data depends on our contracts with data providers, so it is subject to change.
+  ```
+
+- **Location**: `root['paths']['/maps/api/geocode/json']['get']['tags'][0]`
+- **Action**: Change the tag from `Geocoding` back to `default`.
+
+By following these steps, `output_spec.json` will be reverted to match the original specification.

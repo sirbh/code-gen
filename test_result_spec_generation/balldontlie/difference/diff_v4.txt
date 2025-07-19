@@ -1,0 +1,52 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['paths']['/api/v1/players']['get']['operationId']:
+  input_spec.json: allPlayersSearch
+  output_spec.json: getAllPlayers
+root['paths']['/api/v1/players']['get']['parameters'][0]['schema']['example']:
+  input_spec.json: lebron
+  output_spec.json: LeBron
+root['paths']['/api/v1/players/237']['get']['operationId']:
+  input_spec.json: specificPlayer
+  output_spec.json: getSpecificPlayer
+root['paths']['/api/v1/teams']['get']['operationId']:
+  input_spec.json: allTeams
+  output_spec.json: getAllTeams
+root['paths']['/api/v1/teams/1']['get']['operationId']:
+  input_spec.json: specificTeam
+  output_spec.json: getSpecificTeam
+root['paths']['/api/v1/games']['get']['operationId']:
+  input_spec.json: allGamesExampleParameters
+  output_spec.json: getAllGames
+root['paths']['/api/v1/games']['get']['parameters'][0]['schema']['example']:
+  input_spec.json: 2018
+  output_spec.json: 2021
+root['paths']['/api/v1/games/32881']['get']['operationId']:
+  input_spec.json: specificGame
+  output_spec.json: getSpecificGame
+root['paths']['/api/v1/stats']['get']['operationId']:
+  input_spec.json: allStatsExampleParameters
+  output_spec.json: getAllStats
+root['paths']['/api/v1/stats']['get']['parameters'][0]['schema']['example']:
+  input_spec.json: 2018
+  output_spec.json: 2021
+root['paths']['/api/v1/players/9999']['get']['summary']:
+  input_spec.json: specific player invalid id
+  output_spec.json: Invalid player ID
+root['paths']['/api/v1/players/9999']['get']['description']:
+  input_spec.json: specific player invalid id
+  output_spec.json: This endpoint returns an error for an invalid player ID.
+root['paths']['/api/v1/teams/9999']['get']['summary']:
+  input_spec.json: specific team invalid id
+  output_spec.json: Invalid team ID
+root['paths']['/api/v1/teams/9999']['get']['description']:
+  input_spec.json: specific team invalid id
+  output_spec.json: This endpoint returns an error for an invalid team ID.
+root['paths']['/api/v1/games/99999']['get']['summary']:
+  input_spec.json: specific game invalid id
+  output_spec.json: Invalid game ID
+root['paths']['/api/v1/games/99999']['get']['description']:
+  input_spec.json: specific game invalid id
+  output_spec.json: This endpoint returns an error for an invalid game ID.

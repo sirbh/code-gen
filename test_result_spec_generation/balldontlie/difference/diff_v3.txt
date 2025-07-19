@@ -1,0 +1,16 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['info']['title']", "root['info']['version']", "root['paths']['/api/v1/players']['get']['operationId']", "root['paths']['/api/v1/players']['get']['parameters'][0]['schema']['example']", "root['paths']['/api/v1/players/237']['get']['operationId']", "root['paths']['/api/v1/teams']['get']['operationId']", "root['paths']['/api/v1/teams/1']['get']['operationId']", "root['paths']['/api/v1/games']['get']['operationId']", "root['paths']['/api/v1/games']['get']['parameters'][0]['schema']['example']", "root['paths']['/api/v1/games']['get']['parameters'][1]['schema']['example']", "root['paths']['/api/v1/games/32881']['get']['operationId']", "root['paths']['/api/v1/stats']['get']['operationId']", "root['paths']['/api/v1/stats']['get']['parameters'][0]['schema']['example']", "root['paths']['/api/v1/stats']['get']['parameters'][1]['schema']['example']", "root['paths']['/api/v1/players/9999']['get']['summary']", "root['paths']['/api/v1/players/9999']['get']['description']", "root['paths']['/api/v1/teams/9999']['get']['summary']", "root['paths']['/api/v1/teams/9999']['get']['description']", "root['paths']['/api/v1/games/99999']['get']['summary']", "root['paths']['/api/v1/games/99999']['get']['description']"])
+
+=== VALUES_CHANGED ===
+root['paths']['/api/v1/players/9999']['get']['operationId']:
+  input_spec.json: specificPlayerInvalidId
+  output_spec.json: getPlayer9999
+root['paths']['/api/v1/teams/9999']['get']['operationId']:
+  input_spec.json: specificTeamInvalidId
+  output_spec.json: getTeam9999
+root['paths']['/api/v1/games/99999']['get']['operationId']:
+  input_spec.json: specificGameInvalidId
+  output_spec.json: getGame99999

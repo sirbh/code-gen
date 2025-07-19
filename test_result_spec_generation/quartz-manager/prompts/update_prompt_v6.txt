@@ -1,0 +1,39 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+1. **Remove the 'required' attribute**:
+   - Navigate to `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]` and remove the `required` attribute.
+   - Navigate to `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]` and remove the `required` attribute.
+
+2. **Add the 'example' attribute**:
+   - For `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]`, add the `example` attribute with the appropriate value from the original spec.
+   - For `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]`, add the `example` attribute with the appropriate value from the original spec.
+
+3. **Revert 'in' attribute changes**:
+   - Change `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['in']` from `path` back to `query`.
+   - Change `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['in']` from `path` back to `query`.
+
+4. **Revert 'schema' type changes**:
+   - Change `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['schema']['type']` from `string` back to `integer`.
+   - Change `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['schema']['type']` from `string` back to `integer`.
+
+5. **Restore removed parameters**:
+   - Re-add the parameter at `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][3]` with the following details:
+     ```json
+     {
+       "name": "id",
+       "in": "path",
+       "schema": {"type": "string"},
+       "required": true
+     }
+     ```
+   - Re-add the parameter at `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][3]` with the following details:
+     ```json
+     {
+       "name": "id",
+       "in": "path",
+       "schema": {"type": "string"},
+       "required": true
+     }
+     ```
+
+By following these steps, you will revert the `output_spec.json` to match the original specification accurately.

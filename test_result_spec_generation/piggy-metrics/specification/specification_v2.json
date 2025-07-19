@@ -1,0 +1,200 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Piggy Metrics",
+    "version": "1.0.0",
+    "description": "OpenAPI Specification for Piggy Metrics, a simple financial advisor app built to demonstrate the Microservice Architecture Pattern using Spring Boot, Spring Cloud and Docker. This file was created by the PRAB (Public REST API Benchmark) developers."
+  },
+  "servers": [
+    {
+      "url": "https://api.piggymetrics.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/accounts/{account}": {
+      "get": {
+        "description": "Get account details by account ID.",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/accounts/current": {
+      "get": {
+        "description": "Get current account details.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      },
+      "put": {
+        "description": "Update current account details.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/accounts/demo": {
+      "get": {
+        "description": "Get demo account details.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/statistics/{account}": {
+      "get": {
+        "description": "Get statistics for a specific account.",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      },
+      "put": {
+        "description": "Update statistics for a specific account.",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/statistics/current": {
+      "get": {
+        "description": "Get current account statistics.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/statistics/demo": {
+      "get": {
+        "description": "Get demo account statistics.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/notifications/settings/current": {
+      "get": {
+        "description": "Get current notification settings.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      },
+      "put": {
+        "description": "Update current notification settings.",
+        "responses": {
+          "200": {
+            "description": "Valid request.",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "default": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    }
+  }
+}

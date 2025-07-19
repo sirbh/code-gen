@@ -1,0 +1,17 @@
+To revert the changes in `output_spec.json` and align it with the original specification, follow these detailed instructions:
+
+1. **Update Server Description**:
+   - Locate the `servers` array in the root of the JSON.
+   - Find the first object in this array (index 0).
+   - Change the `description` field from "Original server description" to "Generated server url".
+
+2. **Modify Operation IDs in Paths**:
+   - Navigate to the `paths` object in the JSON.
+   - For the path `/z` with the `put` method:
+     - Change the `operationId` from "updateZ" to "putZ".
+   - For the path `/k` with the `put` method:
+     - Change the `operationId` from "updateK" to "putK".
+   - For the path `/y` with the `post` method:
+     - Change the `operationId` from "createY" to "postY".
+
+By following these steps, the `output_spec.json` will be reverted to match the original specification as described in `input_spec.json`. Ensure each change is made precisely to maintain the integrity of the API specification.

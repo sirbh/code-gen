@@ -1,0 +1,48 @@
+To revert the changes in `output_spec.json` to match the original specification, follow these detailed instructions:
+
+### 1. **Remove Added Dictionary Items**
+- **Remove the `required` field** from the following paths and methods:
+  - `root['paths']['/quartz/mail/create']['post']['parameters'][0]['required']`
+  - `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['required']`
+  - `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['required']`
+  - `root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['required']`
+- **Remove the `properties` field** from:
+  - `root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['properties']`
+  - `root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['properties']`
+
+### 2. **Revert Changed Values**
+- **Change `example` values** for the following paths and methods:
+  - `root['paths']['/quartz/mail/create']['post']['parameters'][0]['example']`: Change from `application/json` to `*/*`.
+  - `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][0]['example']`: Change from `application/json` to `*/*`.
+  - `root['paths']['/quartz/mail/list']['get']['parameters'][0]['example']`: Change from `application/json` to `*/*`.
+  - `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][0]['example']`: Change from `application/json` to `*/*`.
+  - `root['paths']['/quartz/mail/update/{id}']['post']['parameters'][0]['example']`: Change from `application/json` to `*/*`.
+
+- **Revert `requestBody` `example` values** for the following paths and methods:
+  - `root['paths']['/quartz/mail/create']['post']['requestBody']['content']['application/json']['schema']['example']`:
+    - `message`: Change from `Hello World` to the original message.
+    - `scheduledTime`: Change from `2023-10-10T10:00:00Z` to `2021-04-24T19:55:00.931Z`.
+    - `subject`: Change from `Meeting Reminder` to `The Bug [RED]`.
+    - `toEmail`: Change from `example@example.com` to `codevampire007@gmail.com`.
+    - `username`: Change from `user123` to `pranaybathini`.
+    - `zoneId`: Change from `UTC` to `Asia/Kolkata`.
+  - `root['paths']['/quartz/mail/update/{id}']['post']['requestBody']['content']['application/json']['schema']['example']`:
+    - `scheduleId`: Change from `123` to `21`.
+    - `message`: Change from `Updated message` to the original message.
+    - `scheduledTime`: Change from `2023-10-10T10:00:00Z` to `2021-04-26T19:56:00.931Z`.
+    - `subject`: Change from `Updated Subject` to `The Bug [RED]`.
+    - `toEmail`: Change from `example@example.com` to `codevampire007@gmail.com`.
+    - `username`: Change from `user123` to `pranaybathini`.
+    - `zoneId`: Change from `UTC` to `Asia/Kolkata`.
+
+- **Revert `parameters` `in` values** for the following paths and methods:
+  - `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['in']`: Change from `path` to `query`.
+  - `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['in']`: Change from `path` to `query`.
+
+- **Revert `parameters` `example` values** for the following paths and methods:
+  - `root['paths']['/quartz/mail/delete/{id}']['delete']['parameters'][1]['example']`: Change from `123` to `7`.
+  - `root['paths']['/quartz/mail/list']['get']['parameters'][1]['example']`: Change from `1` to `0`.
+  - `root['paths']['/quartz/mail/list']['get']['parameters'][2]['example']`: Change from `10` to `1000`.
+  - `root['paths']['/quartz/mail/list/{id}']['get']['parameters'][1]['example']`: Change from `123` to `9`.
+
+By following these instructions, you will successfully revert the changes in `output_spec.json` to match the original specification.

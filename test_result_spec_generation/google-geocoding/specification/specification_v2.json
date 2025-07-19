@@ -1,0 +1,48 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Google Geocoding",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://maps.googleapis.com"
+    }
+  ],
+  "paths": {
+    "/maps/api/geocode/json": {
+      "get": {
+        "summary": "geocode Copy",
+        "description": "[Original detailed description]",
+        "tags": ["Geocoding"],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "example": "[Original example]"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Quartz-Scheduler API",
+    "version": "1.0.0",
+    "description": "API for managing mail schedules."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/quartz/mail/create": {
+      "post": {
+        "tags": ["default"],
+        "summary": "Create a Mail Schedule",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"},
+                  "scheduledTime": {"type": "string", "format": "date-time"},
+                  "subject": {"type": "string"},
+                  "toEmail": {"type": "string", "format": "email"},
+                  "username": {"type": "string"},
+                  "zoneId": {"type": "string"}
+                },
+                "required": ["message", "scheduledTime", "subject", "toEmail", "username", "zoneId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with no content."
+          }
+        }
+      }
+    },
+    "/quartz/mail/delete/{id}": {
+      "delete": {
+        "tags": ["default"],
+        "summary": "Delete a Mail Schedule",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with no content."
+          }
+        }
+      }
+    },
+    "/quartz/mail/list": {
+      "get": {
+        "tags": ["default"],
+        "summary": "Get All Mail Schedules Created by User",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1000
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with no content."
+          }
+        }
+      }
+    },
+    "/quartz/mail/list/{id}": {
+      "get": {
+        "tags": ["default"],
+        "summary": "Get Mail Schedule by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with no content."
+          }
+        }
+      }
+    },
+    "/quartz/mail/update/{id}": {
+      "post": {
+        "tags": ["default"],
+        "summary": "Update Mail Schedule",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scheduleId": {"type": "integer"},
+                  "message": {"type": "string"},
+                  "scheduledTime": {"type": "string", "format": "date-time"},
+                  "subject": {"type": "string"},
+                  "toEmail": {"type": "string", "format": "email"},
+                  "username": {"type": "string"},
+                  "zoneId": {"type": "string"}
+                },
+                "required": ["scheduleId", "message", "scheduledTime", "subject", "toEmail", "username", "zoneId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response with no content."
+          }
+        }
+      }
+    }
+  }
+}

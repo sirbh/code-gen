@@ -1,0 +1,81 @@
+The Piggy Metrics API provides several endpoints for managing account data, statistics, and notification settings. Below is a detailed description of each endpoint:
+
+### 1. **Account Management Endpoints**
+
+- **GET /accounts/{account}**
+  - **Purpose**: Retrieve data for a specified account.
+  - **Parameters**: 
+    - `account` (path parameter, required): A string representing the account identifier.
+  - **Responses**:
+    - `200`: Successful retrieval of account data, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **GET /accounts/current**
+  - **Purpose**: Retrieve data for the current account.
+  - **Responses**:
+    - `200`: Successful retrieval of current account data, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **PUT /accounts/current**
+  - **Purpose**: Save or update data for the current account.
+  - **Responses**:
+    - `200`: Successful update of current account data, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **GET /accounts/demo**
+  - **Purpose**: Retrieve demo account data, which includes pre-filled income and expense items.
+  - **Responses**:
+    - `200`: Successful retrieval of demo account data, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **POST /accounts/**
+  - **Purpose**: Register a new account.
+  - **Responses**:
+    - `200`: Successful registration of a new account, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+### 2. **Statistics Management Endpoints**
+
+- **GET /statistics/{account}**
+  - **Purpose**: Retrieve statistics for a specified account.
+  - **Parameters**:
+    - `account` (path parameter, required): A string representing the account identifier.
+  - **Responses**:
+    - `200`: Successful retrieval of account statistics, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **PUT /statistics/{account}**
+  - **Purpose**: Create or update a time series data point for a specified account.
+  - **Parameters**:
+    - `account` (path parameter, required): A string representing the account identifier.
+  - **Responses**:
+    - `200`: Successful creation or update of time series data, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **GET /statistics/current**
+  - **Purpose**: Retrieve statistics for the current account.
+  - **Responses**:
+    - `200`: Successful retrieval of current account statistics, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **GET /statistics/demo**
+  - **Purpose**: Retrieve demo account statistics.
+  - **Responses**:
+    - `200`: Successful retrieval of demo account statistics, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+### 3. **Notification Settings Endpoints**
+
+- **GET /notifications/settings/current**
+  - **Purpose**: Retrieve notification settings for the current account.
+  - **Responses**:
+    - `200`: Successful retrieval of notification settings, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+- **PUT /notifications/settings/current**
+  - **Purpose**: Save or update notification settings for the current account.
+  - **Responses**:
+    - `200`: Successful update of notification settings, returns JSON content.
+    - `default`: Indicates an invalid request.
+
+Each endpoint is designed to handle specific operations related to account management, statistics, and notifications, with consistent response structures indicating success or failure of the requests.

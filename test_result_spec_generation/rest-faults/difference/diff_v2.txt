@@ -1,0 +1,16 @@
+🔍 Differences found:
+
+
+=== VALUES_CHANGED ===
+root['servers'][0]['description']:
+  input_spec.json: Generated server url
+  output_spec.json: Original server description
+root['paths']['/z']['put']['operationId']:
+  input_spec.json: putZ
+  output_spec.json: updateZ
+root['paths']['/k']['put']['operationId']:
+  input_spec.json: putK
+  output_spec.json: updateK
+root['paths']['/y']['post']['operationId']:
+  input_spec.json: postY
+  output_spec.json: createY

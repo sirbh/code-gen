@@ -1,0 +1,52 @@
+The OpenBreweryDB API provides several endpoints to interact with a dataset of breweries, cideries, brewpubs, and bottleshops. Below is a detailed description of each endpoint, including their paths, HTTP methods, parameters, request body content, response status codes, and response data structure:
+
+### 1. List Breweries
+- **Endpoint Path:** `/breweries`
+- **HTTP Method:** GET
+- **Functionality:** Retrieves a list of breweries based on various query parameters.
+- **Query Parameters:**
+  - `by_city` (string): Filter breweries by city. Example: `san diego`.
+  - `by_dist` (number): Filter breweries by distance from a given latitude and longitude. Example: `-117.129593,32.714813`.
+  - `by_name` (string): Filter breweries by name. Example: `10 Barrel Brewing Co`.
+  - `by_postal` (string): Filter breweries by postal code. Example: `92101-6618`.
+  - `page` (integer): Specify the page number for pagination. Example: `1`.
+  - `per_page` (integer): Specify the number of results per page. Example: `10`.
+  - `sort` (string): Sort results by a specified field and order. Example: `name:desc`.
+- **Response Status Codes:**
+  - `200`: Successful response with a list of breweries in JSON format.
+
+### 2. Get Brewery
+- **Endpoint Path:** `/breweries/{id}`
+- **HTTP Method:** GET
+- **Functionality:** Retrieves details of a single brewery by its unique identifier.
+- **Path Parameters:**
+  - `id` (string, required): The unique identifier (UUID) of the brewery. Example: `modern-times-beer-san-diego`.
+- **Response Status Codes:**
+  - `200`: Successful response with brewery details in JSON format.
+
+### 3. Search Breweries
+- **Endpoint Path:** `/breweries/search`
+- **HTTP Method:** GET
+- **Functionality:** Searches for breweries based on a search term.
+- **Query Parameters:**
+  - `query` (string): The search term to filter breweries. Example: `dog`.
+- **Response Status Codes:**
+  - `200`: Successful response with search results in JSON format.
+
+### 4. Autocomplete
+- **Endpoint Path:** `/breweries/autocomplete`
+- **HTTP Method:** GET
+- **Functionality:** Provides a list of brewery names and IDs based on a search term, typically used for dropdown selections.
+- **Query Parameters:**
+  - `query` (string): The search term for autocomplete suggestions. Example: `dog`.
+- **Response Status Codes:**
+  - `200`: Successful response with autocomplete suggestions in JSON format.
+
+### 5. Random Brewery
+- **Endpoint Path:** `/breweries/random`
+- **HTTP Method:** GET
+- **Functionality:** Retrieves a random brewery from the dataset.
+- **Response Status Codes:**
+  - `200`: Successful response with random brewery details in JSON format.
+
+Each endpoint returns data in JSON format, and the API is hosted at `https://api.openbrewerydb.org/v1`. The API is designed to be open-source and community-driven, providing public access to brewery information for developers and data analysts.

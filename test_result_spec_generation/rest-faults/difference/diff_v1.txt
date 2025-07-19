@@ -1,0 +1,46 @@
+🔍 Differences found:
+
+
+=== DICTIONARY_ITEM_ADDED ===
+SetOrdered(["root['paths']['/z']['put']['summary']", "root['paths']['/k']['put']['summary']", "root['paths']['/y']['post']['summary']"])
+
+=== DICTIONARY_ITEM_REMOVED ===
+SetOrdered(["root['servers'][0]['description']", "root['paths']['/z']['put']['tags']", "root['paths']['/z']['put']['operationId']", "root['paths']['/z']['put']['requestBody']['required']", "root['paths']['/k']['put']['tags']", "root['paths']['/k']['put']['operationId']", "root['paths']['/k']['put']['requestBody']['required']", "root['paths']['/y']['post']['tags']", "root['paths']['/y']['post']['operationId']", "root['paths']['/y']['post']['requestBody']['required']"])
+
+=== VALUES_CHANGED ===
+root['openapi']:
+  input_spec.json: 3.0.1
+  output_spec.json: 3.0.0
+root['info']['title']:
+  input_spec.json: OpenAPI definition
+  output_spec.json: Sample API
+root['info']['version']:
+  input_spec.json: v0
+  output_spec.json: 1.0.0
+root['paths']['/z']['get']:
+  input_spec.json: {'tags': ['endpoints'], 'operationId': 'getZ', 'responses': {'200': {'description': 'OK', 'content': {'*/*': {'schema': {'type': 'integer', 'format': 'int32'}}}}}}
+  output_spec.json: {'summary': 'Retrieve an integer value', 'responses': {'200': {'description': 'Returns an integer', 'content': {'application/json': {'schema': {'type': 'integer', 'format': 'int32'}}}}}}
+root['paths']['/z']['put']['responses']['200']['description']:
+  input_spec.json: OK
+  output_spec.json: Indicates successful update
+root['paths']['/k']['get']:
+  input_spec.json: {'tags': ['endpoints'], 'operationId': 'getK', 'responses': {'200': {'description': 'OK', 'content': {'application/json': {'schema': {'$ref': '#/components/schemas/FooDto'}}}}}}
+  output_spec.json: {'summary': 'Retrieve a FooDto object', 'responses': {'200': {'description': 'Returns a FooDto object', 'content': {'application/json': {'schema': {'$ref': '#/components/schemas/FooDto'}}}}}}
+root['paths']['/k']['put']['responses']['200']['description']:
+  input_spec.json: OK
+  output_spec.json: Indicates successful update
+root['paths']['/y']['get']:
+  input_spec.json: {'tags': ['endpoints'], 'operationId': 'getY', 'responses': {'200': {'description': 'OK', 'content': {'application/json': {'schema': {'$ref': '#/components/schemas/FooDto'}}}}}}
+  output_spec.json: {'summary': 'Retrieve a FooDto object', 'responses': {'200': {'description': 'Returns a FooDto object', 'content': {'application/json': {'schema': {'$ref': '#/components/schemas/FooDto'}}}}}}
+root['paths']['/y']['post']['responses']['201']['description']:
+  input_spec.json: OK
+  output_spec.json: Returns a string indicating successful creation
+root['paths']['/y']['post']['responses']['201']['content']:
+  input_spec.json: {'*/*': {'schema': {'type': 'string'}}}
+  output_spec.json: {'application/json': {'schema': {'type': 'string'}}}
+root['paths']['/y']['delete']:
+  input_spec.json: {'tags': ['endpoints'], 'operationId': 'deleteY', 'responses': {'200': {'description': 'OK'}}}
+  output_spec.json: {'summary': 'Delete a FooDto object', 'responses': {'200': {'description': 'Indicates successful deletion'}}}
+root['paths']['/x']['get']:
+  input_spec.json: {'tags': ['endpoints'], 'operationId': 'getX', 'responses': {'200': {'description': 'OK', 'content': {'*/*': {'schema': {'type': 'string'}}}}}}
+  output_spec.json: {'summary': 'Retrieve a string value', 'responses': {'200': {'description': 'Returns a string', 'content': {'application/json': {'schema': {'type': 'string'}}}}}}

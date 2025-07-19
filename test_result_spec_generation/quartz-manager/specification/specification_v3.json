@@ -1,0 +1,287 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Quartz-Scheduler",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/quartz/mail/create": {
+      "post": {
+        "tags": ["default"],
+        "summary": "CREATE A MAIL SCHEDULE",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"},
+                  "scheduledTime": {"type": "string", "format": "date-time"},
+                  "subject": {"type": "string"},
+                  "toEmail": {"type": "string", "format": "email"},
+                  "username": {"type": "string"},
+                  "zoneId": {"type": "string"}
+                },
+                "example": {
+                  "message": "Hello World",
+                  "scheduledTime": "2023-10-10T10:00:00Z",
+                  "subject": "Meeting Reminder",
+                  "toEmail": "example@example.com",
+                  "username": "user123",
+                  "zoneId": "UTC"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/delete/{id}": {
+      "delete": {
+        "tags": ["default"],
+        "summary": "DELETE A MAIL SCHEDULE",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 123
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "pranaybathini"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/list": {
+      "get": {
+        "tags": ["default"],
+        "summary": "GET ALL MAIL SCHEDULES CREATED BY USER",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 1
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 10
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "pranaybathini"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/list/{id}": {
+      "get": {
+        "tags": ["default"],
+        "summary": "GET MAIL SCHEDULE BY ID",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "integer"
+            },
+            "example": 123
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "pranaybathini"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/quartz/mail/update/{id}": {
+      "post": {
+        "tags": ["default"],
+        "summary": "UPDATE MAIL SCHEDULE",
+        "description": "http://localhost:8080/quartz/mail/update/{id}",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scheduleId": {"type": "integer"},
+                  "message": {"type": "string"},
+                  "scheduledTime": {"type": "string", "format": "date-time"},
+                  "subject": {"type": "string"},
+                  "toEmail": {"type": "string", "format": "email"},
+                  "username": {"type": "string"},
+                  "zoneId": {"type": "string"}
+                },
+                "example": {
+                  "scheduleId": 123,
+                  "message": "Updated message",
+                  "scheduledTime": "2023-10-10T10:00:00Z",
+                  "subject": "Updated Subject",
+                  "toEmail": "example@example.com",
+                  "username": "user123",
+                  "zoneId": "UTC"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
