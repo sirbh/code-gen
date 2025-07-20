@@ -1,6 +1,6 @@
 You are a senior full-stack engineer.
 
-Your task is to generate backend code for a Node.js server using the **Express.js** framework. The code should be based on the given OpenAPI 3.0 specification. It must use **Prisma ORM** and connect to a **PostgreSQL** database. The project should be containerized using **Docker** and **docker-compose**.
+Your task is to generate backend code for a Node.js server using the **Express.js** framework. The code should be based on the given OpenAPI specification. It must use **Prisma ORM** and connect to a **PostgreSQL** database. The project should be containerized using **Docker** and **docker-compose**.
 
 User the latest version for everything
 
@@ -44,19 +44,46 @@ project/
 - Provide working `Dockerfile` and `docker-compose.yml` to run:
   - Node.js app container
   - PostgreSQL container
-  - Prisma migration setup
+  - Prisma migration 
+- make sure docker file run npx prisma generate after npm install
 - `package.json` should include scripts to run the server and Prisma migrations
-
+- make sure services have proper tag about which service they depend on
+- make sure services are healthy before depedent service try to contact
+- add proper health checks in docker compose file.
+- make sure to add 'npx prisma db push' command to package.json and it should run in docker compose after all service are healthy
+- use node:20-alpine3.17 for docker container for server
+- make sure schema.prisma is valid
+- add proper console logs for requests 
 ---
 
 📤 **Output Format**:
 
-Return a valid **JSON object**, where:
+Return a valid **JSON object** string, where:
 
 - Keys are directory or file paths (e.g. `"src/routes/"`, `"Dockerfile"`)
 - Values are single string if the key refers to a file
 
+{json_str:"{
+  key:value,
+  key:value,
+  ...
+}"}
+
+here is an example server code you can follow best practices from this
+
+{
+  ".env": "DATABASE_URL=postgresql://spec_gen_test:password@localhost:5432/mydb?schema=public\nPORT=3000\n",
+  "docker-compose.yml": "version: '3.8'\nservices:\n  db:\n    image: postgres:latest\n    environment:\n      POSTGRES_USER: user\n      POSTGRES_PASSWORD: password\n      POSTGRES_DB: mydb\n    healthcheck:\n      test: [\"CMD\", \"pg_isready\", \"-U\", \"user\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5\n    volumes:\n      - db_data:/var/lib/postgresql/data\n  app:\n    build: .\n    command: sh -c \"npm run db:push && npm start\"\n    environment:\n      PORT: 3000\n      DATABASE_URL: postgresql://user:password@db:5432/mydb?schema=public\n    depends_on:\n      db:\n        condition: service_healthy\n    ports:\n      - \"3000:3000\"\nvolumes:\n  db_data:\n",
+  "Dockerfile": "FROM node:20-alpine3.17\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\nCOPY . .\nRUN npx prisma generate\nCMD [\"npm\", \"start\"]\n",
+  "package.json": "{\n  \"name\": \"book-api\",\n  \"version\": \"1.0.0\",\n  \"main\": \"src/app.js\",\n  \"scripts\": {\n    \"start\": \"node src/app.js\",\n    \"db:push\": \"npx prisma db push\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.2\",\n    \"@prisma/client\": \"^4.5.0\"\n  },\n  \"devDependencies\": {\n    \"prisma\": \"^4.5.0\"\n  }\n}\n",
+  "README.md": "# Book API\n\nThis is a simple Book API built with Node.js, Express.js, and Prisma ORM. It connects to a PostgreSQL database and is containerized using Docker and docker-compose.\n\n## Getting Started\n\n### Prerequisites\n\n- Docker\n- Docker Compose\n\n### Running the Application\n\n1. Clone the repository\n2. Navigate to the project directory\n3. Run `docker-compose up --build`\n4. The server will be running at `http://localhost:3000`\n\n### API Endpoints\n\n- GET /api/books: Retrieve all books\n- POST /api/books: Create a new book\n- GET /api/books/{bookId}: Retrieve a book by ID\n- PUT /api/books/{bookId}: Update a book by ID\n- DELETE /api/books/{bookId}: Delete a book by ID\n\n### Environment Variables\n\n- `DATABASE_URL`: Connection string for the PostgreSQL database\n\n### Notes\n\n- Ensure the PostgreSQL service is running and accessible.\n- Prisma migrations are automatically applied when the app starts.\n",    
+  "config\\db.js": "const { PrismaClient } = require('@prisma/client');\nconst prisma = new PrismaClient();\n\nmodule.exports = prisma;\n",
+  "prisma\\schema.prisma": "generator client {\n  provider = \"prisma-client-js\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Book {\n  id            String  @id @default(uuid())\n  title         String\n  author        String\n  publishedYear Int?\n}\n",
+  "src\\app.js": "const express = require('express');\nconst bookRoutes = require('./routes/bookRoutes');\n\nconst app = express();\nconst PORT = process.env.PORT || 3000;\n\n\napp.use(express.json());\napp.use('/api/books', bookRoutes);\n\napp.listen(PORT, () => {\n  console.log('Server is running on http://localhost:' + PORT);\n});\n\nmodule.exports = { app };\n",
+  "src\\controllers\\bookController.js": "const { PrismaClient } = require('@prisma/client');\n\nconst prisma = new PrismaClient();\n\nconst getBooks = async (req, res) => {\n  try {\n    await prisma.book.findMany(); // Ensure the database connection is established\n    console.log('Fetching all books');\n\n    const books = await prisma.book.findMany();\n    console.log('Books fetched successfully:', books);\n    res.json(books);\n  } catch (error) {\n    console.error('Error fetching books:', error);\n    res.status(500).json({ error: 'Internal Server Error' });\n  }\n};\n\nconst createBook = async (req, res) => {\n  try {\n    const { title, author, publishedYear } = req.body;\n    const newBook = await prisma.book.create({\n      data: { title, author, publishedYear }\n    });\n    res.status(201).json(newBook);\n  } catch (error) {\n    res.status(500).json({ error: 'Internal Server Error' });\n  }\n};\n\nconst getBookById = async (req, res) => {\n  try {\n    const { bookId } = req.params;\n    const book = await prisma.book.findUnique({ where: { id: bookId } });\n    if (book) {\n      res.json(book);\n    } else {\n      res.status(404).json({ error: 'Book not found' });\n    }\n  } catch (error) {\n    res.status(500).json({ error: 'Internal Server Error' });\n  }\n};\n\nconst updateBook = async (req, res) => {\n  try {\n    const { bookId } = req.params;\n    const { title, author, publishedYear } = req.body;\n    const updatedBook = await prisma.book.update({\n      where: { id: bookId },\n      data: { title, author, publishedYear }\n    });\n    res.json(updatedBook);\n  } catch (error) {\n    res.status(500).json({ error: 'Internal Server Error' });\n  }\n};\n\nconst deleteBook = async (req, res) => {\n  try {\n    const { bookId } = req.params;\n    await prisma.book.delete({ where: { id: bookId } });\n    res.status(204).send();\n  } catch (error) {\n    res.status(500).json({ error: 'Internal Server Error' });\n  }\n};\n\nmodule.exports = { getBooks, createBook, getBookById, updateBook, deleteBook };\n",
+  "src\\routes\\bookRoutes.js": "const express = require('express');\nconst { getBooks, createBook, getBookById, updateBook, deleteBook } = require('../controllers/bookController');\n\nconst router = express.Router();\n\nrouter.get('/', getBooks);\nrouter.post('/', createBook);\nrouter.get('/:bookId', getBookById);\nrouter.put('/:bookId', updateBook);\nrouter.delete('/:bookId', deleteBook);\n\nmodule.exports = router;\n"
+}
+
 📌 **Only output the JSON**. No explanation. No markdown. No additional text.
 
-Save this code to user local directory
 
