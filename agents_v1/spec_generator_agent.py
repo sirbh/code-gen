@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langgraph.graph import MessagesState, StateGraph, START
 from langgraph.prebuilt import tools_condition, ToolNode
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.messages import SystemMessage
 from langchain_core.tools import tool
 from langgraph.checkpoint.memory import MemorySaver
 
@@ -111,18 +111,19 @@ def assistant(state: MessagesState):
 
 
 
+def create_graph(checkpointer):
 
+     builder = StateGraph(MessagesState)
+     builder.add_node("assistant", assistant)
+     builder.add_node("tools", ToolNode(tools))
+     
+     builder.add_edge(START, "assistant")
+     builder.add_conditional_edges("assistant", tools_condition)
+     builder.add_edge("tools", "assistant")  # optional: loop back to LLM if needed
+     
+     # Compile
+     graph = builder.compile(checkpointer=checkpointer)
 
-# 5. Graph setup
-builder = StateGraph(MessagesState)
-builder.add_node("assistant", assistant)
-builder.add_node("tools", ToolNode(tools))
-
-builder.add_edge(START, "assistant")
-builder.add_conditional_edges("assistant", tools_condition)
-builder.add_edge("tools", "assistant")  # optional: loop back to LLM if needed
-
-# Compile
-graph = builder.compile(checkpointer=memory)
+     return graph
 
 

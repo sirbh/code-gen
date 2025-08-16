@@ -54,6 +54,7 @@ project/
 - use node:20-alpine3.17 for docker container for server
 - make sure schema.prisma is valid
 - add proper console logs for requests 
+- Make sure routes are defined are according to the specification dont add extra /api or anything exactly as in specification
 ---
 
 📤 **Output Format**:

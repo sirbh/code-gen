@@ -5,7 +5,7 @@ from typing_extensions import TypedDict
 
 import json
 
-from langgraph.graph import StateGraph, START, END
+from langgraph.graph import StateGraph, START, END, MessagesState
 from langgraph.prebuilt import tools_condition, ToolNode
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage
@@ -26,8 +26,9 @@ class ResponseFormatter(BaseModel):
     """Always use this tool to structure your response to the user."""
     json_str: str = Field(description="A JSON string representing the server code")
 
-class OverallState(TypedDict):
+class OverallState(MessagesState):
     server_code:str
+    custom_message:str
 
 
 
@@ -80,7 +81,6 @@ def assistant(state: OverallState)-> OverallState:
     print("Generating server code...")
 
     spec = read_file_as_string(spec_file)
-    print(spec)
     prompt = read_file_as_string("prompts/code_generator_agent_prompt.txt").replace("{{INSERT_OPENAPI_SPEC_HERE}}", spec)
     
     # Call the LLM with the prompt
@@ -113,18 +113,24 @@ def json_fixer(state: OverallState) -> OverallState:
     }
 
 
-# 5. Graph setup
-builder = StateGraph(OverallState)
-builder.add_node("assistant", assistant)
-builder.add_node("json_fixer", json_fixer)
+def create_graph(checkpointer):
 
-builder.add_edge(START, "assistant")
-builder.add_edge("assistant", "json_fixer")
+    builder = StateGraph(OverallState)
+    
+    # 3. Add nodes
+    builder.add_node("assistant", assistant)
+    builder.add_node("json_fixer", json_fixer)
 
-builder.add_edge("json_fixer", END)
+    # 4. Add edges
+    builder.add_edge(START, "assistant")
+    builder.add_edge("assistant", "json_fixer")
+    builder.add_edge("json_fixer", END)
 
-# Compile
-graph = builder.compile()
+    # 5. Compile the graph
+    graph = builder.compile(checkpointer=checkpointer)
+
+    return graph
+
 
 
 

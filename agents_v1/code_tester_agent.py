@@ -113,7 +113,6 @@ def fix_server_code(errors:str) -> str:
     Fixes the server code based on the provided instructions.
 
     Args:
-        instructions (str): Instructions for fixing the server code.
         errors (str): Exact errors that are causing the issue.
 
     Returns:
@@ -137,6 +136,35 @@ def fix_server_code(errors:str) -> str:
     except Exception as e:
         return f"Error while fixing server code: {str(e)}"
     
+@tool
+def update_server_code(instructions:str) -> str:
+    """
+    Fixes the server code based on the provided instructions.
+
+    Args:
+        instructions (str): Instructions for updating the server code.
+
+    Returns:
+        A message indicating whether the code was fixed successfully or any errors.
+    """
+    # Load the existing server code from the directory
+
+    try:
+        # Convert the directory structure to JSON
+        json_string = fixer_graph.invoke({
+            "server_code": "",
+            "instructions": instructions
+        })
+    
+        print(json_string)
+        
+        # Print or save the JSON string
+        save_server_code(server_code_path, json.loads(json_string["server_code"]))
+        
+        return "Server code updated successfully."
+    except Exception as e:
+        return f"Error while updating server code: {str(e)}"
+
 
 import requests
 from typing import Optional, Dict, Any
@@ -195,7 +223,7 @@ def read_file_as_string(filepath: str) -> str:
 
 
 
-tools = [run_docker_compose_up, get_all_docker_logs, fix_server_code, make_http_request]
+tools = [run_docker_compose_up, get_all_docker_logs, fix_server_code, make_http_request, update_server_code]
 
 
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
@@ -217,12 +245,29 @@ This is the openAPI specification for the server code:
     return {"messages": [llm_with_tools.invoke([sys_msg] + state["messages"])]}
 
 # 5. Graph setup
-builder = StateGraph(MessagesState)
-builder.add_node("assistant", assistant)
-builder.add_node("tools", ToolNode(tools))
-builder.add_edge(START, "assistant")
-builder.add_conditional_edges("assistant", tools_condition)
-builder.add_edge("tools", "assistant")  # optional: loop back to LLM if needed
 
-# Compile
-graph = builder.compile(checkpointer=memory)
+def create_graph(checkpointer):
+    builder = StateGraph(MessagesState)
+    builder.add_node("assistant", assistant)
+    builder.add_node("tools", ToolNode(tools))
+    builder.add_edge(START, "assistant")
+    builder.add_conditional_edges("assistant", tools_condition)
+    builder.add_edge("tools", "assistant")  # optional: loop back to LLM if needed
+
+    # Compile
+    return builder.compile(checkpointer=checkpointer)
+
+def code_generator_create_graph():
+    """
+    Create the graph for the code generator agent.
+    """
+    builder = StateGraph(MessagesState)
+    builder.add_node("assistant", assistant)
+    builder.add_node("tools", ToolNode(tools))
+    builder.add_edge(START, "assistant")
+    builder.add_conditional_edges("assistant", tools_condition)
+    builder.add_edge("tools", "assistant")  # optional: loop back to LLM if needed
+
+    # Compile
+    return builder.compile()
+

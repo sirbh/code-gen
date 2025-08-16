@@ -25,6 +25,7 @@ class ResponseFormatter(BaseModel):
 class OverallState(TypedDict):
     server_code:str
     errors: str
+    instructions: str
 
 
 
@@ -79,18 +80,19 @@ llm_with_output = llm.with_structured_output(ResponseFormatter)
 
 
 # 4. Assistant node: calls LLM
-def assistant(state: OverallState)-> OverallState:
+def fixer_assistant(state: OverallState)-> OverallState:
     """
-    This function fixed server code based on the instructions provided.
+    This function fixes server code based on the instructions provided.
     """
 
 
     prompt = """
 You are given a JSON string that represents server code and your job is to fix the server.
-your are provided the error make sure to fix the server code based on the errors:
+your are provided the either with the errors or the instructions. Make sure to fix or update the server code based on the errors or the instructions:
 
 
-these are the errors:{errors}
+these are the errors (it may be empty):{errors}
+these are the instructions (it may be empty): {instructions}
 
 server code: {server_code}
 
@@ -108,7 +110,8 @@ example output: {{ "json_str": "{{
     # Call the LLM with the prompt
     response = llm_with_output.invoke(prompt.format(
         server_code=json_string,
-        errors=state.get("errors", "")
+        errors=state.get("errors", ""),
+        instructions=state.get("instructions", "")
     ))
 
     
@@ -138,7 +141,7 @@ def json_fixer(state: OverallState) -> OverallState:
 # 5. Graph setup
 
 builder = StateGraph(OverallState)
-builder.add_node("assistant", assistant)
+builder.add_node("assistant", fixer_assistant)
 builder.add_node("json_fixer", json_fixer)
 
 builder.add_edge(START, "assistant")

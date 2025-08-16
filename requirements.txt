@@ -14,3 +14,7 @@ langgraph-cli[inmem]
 openapi-spec-validator 
 pyyaml
 dotenv
+fastapi 
+uvicorn
+langgraph-checkpoint-postgres
+psycopg[binary,pool]
